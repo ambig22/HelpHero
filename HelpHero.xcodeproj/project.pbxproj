@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C62B9431E8D73C3003BD960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9421E8D73C3003BD960 /* AppDelegate.swift */; };
+		2C62B9451E8D73C3003BD960 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9441E8D73C3003BD960 /* ViewController.swift */; };
+		2C62B9481E8D73C3003BD960 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B9461E8D73C3003BD960 /* Main.storyboard */; };
+		2C62B94B1E8D73C3003BD960 /* HelpHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9491E8D73C3003BD960 /* HelpHero.xcdatamodeld */; };
+		2C62B94D1E8D73C3003BD960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B94C1E8D73C3003BD960 /* Assets.xcassets */; };
+		2C62B9501E8D73C3003BD960 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B94E1E8D73C3003BD960 /* LaunchScreen.storyboard */; };
+		2C62B9581E8D78E8003BD960 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B9571E8D78E8003BD960 /* GoogleService-Info.plist */; };
+		2C62B95A1E8D87AA003BD960 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9591E8D87AA003BD960 /* Extensions.swift */; };
+		2C62B9611E8DA508003BD960 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B95F1E8DA508003BD960 /* HomeController.swift */; };
+		373478E93F69C8540DD087AF /* Pods_HelpHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F05DD809DBC0DAD1BCD112 /* Pods_HelpHero.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C62B93F1E8D73C3003BD960 /* HelpHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C62B9421E8D73C3003BD960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C62B9441E8D73C3003BD960 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C62B9471E8D73C3003BD960 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C62B94A1E8D73C3003BD960 /* HelpHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HelpHero.xcdatamodel; sourceTree = "<group>"; };
+		2C62B94C1E8D73C3003BD960 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C62B94F1E8D73C3003BD960 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C62B9511E8D73C3003BD960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C62B9571E8D78E8003BD960 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2C62B9591E8D87AA003BD960 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2C62B95F1E8DA508003BD960 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		3E351DDA2B0C720BB03D70C6 /* Pods-HelpHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpHero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HelpHero/Pods-HelpHero.debug.xcconfig"; sourceTree = "<group>"; };
+		718DD65821DBF0F621F38680 /* Pods-HelpHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpHero.release.xcconfig"; path = "Pods/Target Support Files/Pods-HelpHero/Pods-HelpHero.release.xcconfig"; sourceTree = "<group>"; };
+		93F05DD809DBC0DAD1BCD112 /* Pods_HelpHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelpHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C62B93C1E8D73C3003BD960 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373478E93F69C8540DD087AF /* Pods_HelpHero.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C62B9361E8D73C3003BD960 = {
+			isa = PBXGroup;
+			children = (
+				2C62B9411E8D73C3003BD960 /* HelpHero */,
+				2C62B9401E8D73C3003BD960 /* Products */,
+				719F0C84EDDED1843F81A936 /* Pods */,
+				B143D1D8DC29163AB38360BB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2C62B9401E8D73C3003BD960 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C62B93F1E8D73C3003BD960 /* HelpHero.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C62B9411E8D73C3003BD960 /* HelpHero */ = {
+			isa = PBXGroup;
+			children = (
+				2C62B9421E8D73C3003BD960 /* AppDelegate.swift */,
+				2C62B9591E8D87AA003BD960 /* Extensions.swift */,
+				2C62B9441E8D73C3003BD960 /* ViewController.swift */,
+				2C62B9461E8D73C3003BD960 /* Main.storyboard */,
+				2C62B95F1E8DA508003BD960 /* HomeController.swift */,
+				2C62B94C1E8D73C3003BD960 /* Assets.xcassets */,
+				2C62B94E1E8D73C3003BD960 /* LaunchScreen.storyboard */,
+				2C62B9511E8D73C3003BD960 /* Info.plist */,
+				2C62B9491E8D73C3003BD960 /* HelpHero.xcdatamodeld */,
+				2C62B9571E8D78E8003BD960 /* GoogleService-Info.plist */,
+			);
+			path = HelpHero;
+			sourceTree = "<group>";
+		};
+		719F0C84EDDED1843F81A936 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E351DDA2B0C720BB03D70C6 /* Pods-HelpHero.debug.xcconfig */,
+				718DD65821DBF0F621F38680 /* Pods-HelpHero.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B143D1D8DC29163AB38360BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93F05DD809DBC0DAD1BCD112 /* Pods_HelpHero.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C62B93E1E8D73C3003BD960 /* HelpHero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C62B9541E8D73C3003BD960 /* Build configuration list for PBXNativeTarget "HelpHero" */;
+			buildPhases = (
+				D67939AFD9D6AB134B800A93 /* [CP] Check Pods Manifest.lock */,
+				2C62B93B1E8D73C3003BD960 /* Sources */,
+				2C62B93C1E8D73C3003BD960 /* Frameworks */,
+				2C62B93D1E8D73C3003BD960 /* Resources */,
+				0EC68827F4AAD692B6A5D52E /* [CP] Embed Pods Frameworks */,
+				43E38F047C6AE325C81187BE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelpHero;
+			productName = HelpHero;
+			productReference = 2C62B93F1E8D73C3003BD960 /* HelpHero.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C62B9371E8D73C3003BD960 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Jerry Chen";
+				TargetAttributes = {
+					2C62B93E1E8D73C3003BD960 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 97UAVLVZY6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2C62B93A1E8D73C3003BD960 /* Build configuration list for PBXProject "HelpHero" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2C62B9361E8D73C3003BD960;
+			productRefGroup = 2C62B9401E8D73C3003BD960 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C62B93E1E8D73C3003BD960 /* HelpHero */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C62B93D1E8D73C3003BD960 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C62B9501E8D73C3003BD960 /* LaunchScreen.storyboard in Resources */,
+				2C62B9581E8D78E8003BD960 /* GoogleService-Info.plist in Resources */,
+				2C62B94D1E8D73C3003BD960 /* Assets.xcassets in Resources */,
+				2C62B9481E8D73C3003BD960 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EC68827F4AAD692B6A5D52E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HelpHero/Pods-HelpHero-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43E38F047C6AE325C81187BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HelpHero/Pods-HelpHero-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D67939AFD9D6AB134B800A93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C62B93B1E8D73C3003BD960 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C62B9451E8D73C3003BD960 /* ViewController.swift in Sources */,
+				2C62B9431E8D73C3003BD960 /* AppDelegate.swift in Sources */,
+				2C62B94B1E8D73C3003BD960 /* HelpHero.xcdatamodeld in Sources */,
+				2C62B95A1E8D87AA003BD960 /* Extensions.swift in Sources */,
+				2C62B9611E8DA508003BD960 /* HomeController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C62B9461E8D73C3003BD960 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C62B9471E8D73C3003BD960 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2C62B94E1E8D73C3003BD960 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C62B94F1E8D73C3003BD960 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C62B9521E8D73C3003BD960 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2C62B9531E8D73C3003BD960 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C62B9551E8D73C3003BD960 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E351DDA2B0C720BB03D70C6 /* Pods-HelpHero.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 97UAVLVZY6;
+				INFOPLIST_FILE = HelpHero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.helphero.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2C62B9561E8D73C3003BD960 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 718DD65821DBF0F621F38680 /* Pods-HelpHero.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 97UAVLVZY6;
+				INFOPLIST_FILE = HelpHero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.helphero.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C62B93A1E8D73C3003BD960 /* Build configuration list for PBXProject "HelpHero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C62B9521E8D73C3003BD960 /* Debug */,
+				2C62B9531E8D73C3003BD960 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C62B9541E8D73C3003BD960 /* Build configuration list for PBXNativeTarget "HelpHero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C62B9551E8D73C3003BD960 /* Debug */,
+				2C62B9561E8D73C3003BD960 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2C62B9491E8D73C3003BD960 /* HelpHero.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2C62B94A1E8D73C3003BD960 /* HelpHero.xcdatamodel */,
+			);
+			currentVersion = 2C62B94A1E8D73C3003BD960 /* HelpHero.xcdatamodel */;
+			path = HelpHero.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2C62B9371E8D73C3003BD960 /* Project object */;
+}
