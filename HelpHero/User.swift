@@ -9,5 +9,17 @@
 import UIKit
 
 class User {
+    let username:String
+    var projectLevel:String
+    var tttReputation: Double
+    
+    var image:UIImage?
+    
+    init(name:String, level:String, reputation:Double)
+    {
+        username = name
+        projectLevel = level
+        tttReputation = reputation
+    }
     
 }
