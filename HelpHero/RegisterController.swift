@@ -42,11 +42,11 @@ class RegisterController: UIViewController {
 
     @IBOutlet weak var logoImageView: UIImageView!
     
-    @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var displayNameTextField: CustomTextField!
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: CustomTextField!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: CustomTextField!
     
     @IBOutlet weak var registerButton: UIButton!
     
@@ -59,7 +59,20 @@ class RegisterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
+        
+        view.backgroundColor = offGrey
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func setupViews() {
+        logoImageView.image = logoImageView.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        logoImageView.tintColor = heroColor
+        
+        registerButton.backgroundColor = heroColor
+        registerButton.setTitleColor(UIColor.white, for: .normal)
+        registerButton.layer.cornerRadius = 5
     }
 
     /////////////////////////////////////////////////////////////////

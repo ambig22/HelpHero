@@ -44,6 +44,9 @@ class HomeController: UIViewController {
     /////////////////////////////////////////////////////////////////
     
     @IBAction func newQuestionButtonPrsd(_ sender: Any) {
+        let newQuestionVC = NewQuestionController()
+        self.present(newQuestionVC, animated: true, completion: nil)
+        
     }
     
     @IBAction func filterButtonPrsd(_ sender: Any) {
