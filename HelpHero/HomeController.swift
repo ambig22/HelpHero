@@ -30,8 +30,8 @@ class HomeController: UIViewController {
             print(logoutError)
         }
         
-        let loginController = LoginController()
-        present(loginController, animated: true, completion: nil)
+        let registerController = RegisterController()
+        present(registerController, animated: true, completion: nil)
     }
 
     /////////////////////////////////////////////////////////////////
