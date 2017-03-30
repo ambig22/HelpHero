@@ -50,6 +50,11 @@ class RegisterController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     
+    /////////////////////////////////////////////////////////////////
+    //
+    // viewDidLoad
+    //
+    /////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
 
