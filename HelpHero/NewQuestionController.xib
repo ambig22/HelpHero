@@ -29,6 +29,9 @@
                     <state key="normal" title="Submit Button">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="submitButtonPrsd:" destination="-1" eventType="touchUpInside" id="OZr-Jf-XDq"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Question body text field" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gKH-Od-qwu">
                     <rect key="frame" x="76" y="246" width="176" height="30"/>

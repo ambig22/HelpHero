@@ -33,5 +33,12 @@ class NewQuestionController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    /////////////////////////////////////////////////////////////////
+    //
+    // Actions
+    //
+    /////////////////////////////////////////////////////////////////
+    @IBAction func submitButtonPrsd(_ sender: Any) {
+    }
 
 }

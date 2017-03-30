@@ -35,7 +35,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ff4-Wb-bDi"/>
+                    <navigationItem key="navigationItem" id="ff4-Wb-bDi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="qEW-mq-iQh"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="w16-ZB-yZ9"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="logoutButton" destination="K5Z-t1-BBZ" id="BSC-vs-Jd5"/>
                     </connections>
