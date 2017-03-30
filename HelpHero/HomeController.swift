@@ -13,6 +13,9 @@ class HomeController: UIViewController {
 
     @IBOutlet weak var logoutButton: UIButton!
     
+    @IBOutlet weak var questionsListCollection: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +42,12 @@ class HomeController: UIViewController {
     // Actions
     //
     /////////////////////////////////////////////////////////////////
+    
+    @IBAction func newQuestionButtonPrsd(_ sender: Any) {
+    }
+    
+    @IBAction func filterButtonPrsd(_ sender: Any) {
+    }
     
     @IBAction func logoutButtonPrsd(_ sender: Any) {
         handleLogout()

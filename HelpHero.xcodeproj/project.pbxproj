@@ -21,6 +21,9 @@
 		2C62B96A1E8DAEBD003BD960 /* NewQuestionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B9681E8DAEBD003BD960 /* NewQuestionController.xib */; };
 		2C62B96D1E8DAEE1003BD960 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B96B1E8DAEE1003BD960 /* EntryController.swift */; };
 		2C62B96E1E8DAEE1003BD960 /* EntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B96C1E8DAEE1003BD960 /* EntryController.xib */; };
+		2C62B9711E8DBA9E003BD960 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9701E8DBA9E003BD960 /* DAO.swift */; };
+		2C62B9731E8DBAE9003BD960 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9721E8DBAE9003BD960 /* User.swift */; };
+		2C62B9751E8DBAFB003BD960 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9741E8DBAFB003BD960 /* Question.swift */; };
 		373478E93F69C8540DD087AF /* Pods_HelpHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F05DD809DBC0DAD1BCD112 /* Pods_HelpHero.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		2C62B9681E8DAEBD003BD960 /* NewQuestionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewQuestionController.xib; sourceTree = "<group>"; };
 		2C62B96B1E8DAEE1003BD960 /* EntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		2C62B96C1E8DAEE1003BD960 /* EntryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryController.xib; sourceTree = "<group>"; };
+		2C62B9701E8DBA9E003BD960 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		2C62B9721E8DBAE9003BD960 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2C62B9741E8DBAFB003BD960 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		3E351DDA2B0C720BB03D70C6 /* Pods-HelpHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpHero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HelpHero/Pods-HelpHero.debug.xcconfig"; sourceTree = "<group>"; };
 		718DD65821DBF0F621F38680 /* Pods-HelpHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpHero.release.xcconfig"; path = "Pods/Target Support Files/Pods-HelpHero/Pods-HelpHero.release.xcconfig"; sourceTree = "<group>"; };
 		93F05DD809DBC0DAD1BCD112 /* Pods_HelpHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelpHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,13 +87,14 @@
 			children = (
 				2C62B9421E8D73C3003BD960 /* AppDelegate.swift */,
 				2C62B9591E8D87AA003BD960 /* Extensions.swift */,
-				2C62B95F1E8DA508003BD960 /* HomeController.swift */,
+				2C62B96F1E8DBA8D003BD960 /* Model */,
 				2C62B9631E8DACDB003BD960 /* RegisterController.swift */,
 				2C62B9641E8DACDB003BD960 /* RegisterController.xib */,
 				2C62B9671E8DAEBD003BD960 /* NewQuestionController.swift */,
 				2C62B9681E8DAEBD003BD960 /* NewQuestionController.xib */,
 				2C62B96B1E8DAEE1003BD960 /* EntryController.swift */,
 				2C62B96C1E8DAEE1003BD960 /* EntryController.xib */,
+				2C62B95F1E8DA508003BD960 /* HomeController.swift */,
 				2C62B9461E8D73C3003BD960 /* Main.storyboard */,
 				2C62B94C1E8D73C3003BD960 /* Assets.xcassets */,
 				2C62B94E1E8D73C3003BD960 /* LaunchScreen.storyboard */,
@@ -96,6 +103,16 @@
 				2C62B9571E8D78E8003BD960 /* GoogleService-Info.plist */,
 			);
 			path = HelpHero;
+			sourceTree = "<group>";
+		};
+		2C62B96F1E8DBA8D003BD960 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C62B9701E8DBA9E003BD960 /* DAO.swift */,
+				2C62B9721E8DBAE9003BD960 /* User.swift */,
+				2C62B9741E8DBAFB003BD960 /* Question.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		719F0C84EDDED1843F81A936 /* Pods */ = {
@@ -243,10 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C62B9711E8DBA9E003BD960 /* DAO.swift in Sources */,
 				2C62B9431E8D73C3003BD960 /* AppDelegate.swift in Sources */,
 				2C62B9651E8DACDB003BD960 /* RegisterController.swift in Sources */,
 				2C62B94B1E8D73C3003BD960 /* HelpHero.xcdatamodeld in Sources */,
 				2C62B9691E8DAEBD003BD960 /* NewQuestionController.swift in Sources */,
+				2C62B9751E8DBAFB003BD960 /* Question.swift in Sources */,
+				2C62B9731E8DBAE9003BD960 /* User.swift in Sources */,
 				2C62B95A1E8D87AA003BD960 /* Extensions.swift in Sources */,
 				2C62B96D1E8DAEE1003BD960 /* EntryController.swift in Sources */,
 				2C62B9611E8DA508003BD960 /* HomeController.swift in Sources */,
