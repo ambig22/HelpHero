@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 // Settings
 let windowWidth = UIScreen.main.bounds.width
 let windowHeight = UIScreen.main.bounds.height
@@ -67,4 +68,37 @@ class RegisterController: UIViewController {
     //
     /////////////////////////////////////////////////////////////////
 
+    @IBAction func registerBtn(_ sender: UIButton) {
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = displayNameTextField.text else {
+            print("form not valid")
+            return
+        }
+        
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            guard let uid = user?.uid else {
+                print("UID Error")
+                return
+            }
+            // successfully authenticated user
+            let ref = FIRDatabase.database().reference(fromURL: "https://helphero-7b63c.firebaseio.com/")
+            let usersRef = ref.child("users").child(uid)
+            let values = ["displayName": name, "email": email]
+            usersRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if err != nil {
+                    print(err!)
+                    return
+                }
+                
+                print("Saved User Successfully into FIR DB")
+                self.dismiss(animated: true, completion: nil)
+            })
+            
+        })
+    }
+    
 }

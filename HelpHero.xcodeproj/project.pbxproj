@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2C62B9431E8D73C3003BD960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9421E8D73C3003BD960 /* AppDelegate.swift */; };
-		2C62B9451E8D73C3003BD960 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9441E8D73C3003BD960 /* LoginController.swift */; };
 		2C62B9481E8D73C3003BD960 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B9461E8D73C3003BD960 /* Main.storyboard */; };
 		2C62B94B1E8D73C3003BD960 /* HelpHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9491E8D73C3003BD960 /* HelpHero.xcdatamodeld */; };
 		2C62B94D1E8D73C3003BD960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B94C1E8D73C3003BD960 /* Assets.xcassets */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		2C62B93F1E8D73C3003BD960 /* HelpHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C62B9421E8D73C3003BD960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C62B9441E8D73C3003BD960 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2C62B9471E8D73C3003BD960 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C62B94A1E8D73C3003BD960 /* HelpHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HelpHero.xcdatamodel; sourceTree = "<group>"; };
 		2C62B94C1E8D73C3003BD960 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				2C62B9421E8D73C3003BD960 /* AppDelegate.swift */,
 				2C62B9591E8D87AA003BD960 /* Extensions.swift */,
 				2C62B95F1E8DA508003BD960 /* HomeController.swift */,
-				2C62B9441E8D73C3003BD960 /* LoginController.swift */,
 				2C62B9631E8DACDB003BD960 /* RegisterController.swift */,
 				2C62B9641E8DACDB003BD960 /* RegisterController.xib */,
 				2C62B9671E8DAEBD003BD960 /* NewQuestionController.swift */,
@@ -246,7 +243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C62B9451E8D73C3003BD960 /* LoginController.swift in Sources */,
 				2C62B9431E8D73C3003BD960 /* AppDelegate.swift in Sources */,
 				2C62B9651E8DACDB003BD960 /* RegisterController.swift in Sources */,
 				2C62B94B1E8D73C3003BD960 /* HelpHero.xcdatamodeld in Sources */,
