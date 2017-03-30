@@ -31,7 +31,7 @@ class CustomTextField: UITextField {
     }
 }
 
-class ViewController: UIViewController {
+class LoginController: UIViewController {
     
 
     /////////////////////////////////////////////////////////////////
@@ -60,11 +60,6 @@ class ViewController: UIViewController {
         setupViews()
         
         view.backgroundColor = offGrey
-        
-        if FIRAuth.auth()?.currentUser?.uid == nil {
-            
-        }
-        
         
     }
     
@@ -117,7 +112,7 @@ class ViewController: UIViewController {
                 print("Saved User Successfully into FIR DB")
                 
                 let homeVC = HomeController()
-                present(homeVC, animated: true, completion: nil)
+                self.present(homeVC, animated: true, completion: nil)
             })
             
         })
