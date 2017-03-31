@@ -100,7 +100,7 @@ class RegisterController: UIViewController {
             // successfully authenticated user
             let ref = FIRDatabase.database().reference(fromURL: "https://helphero-7b63c.firebaseio.com/")
             let usersRef = ref.child("users").child(uid)
-            let values = ["displayName": name, "email": email]
+            let values = ["displayName": name, "email": email, "currentProject": "N/A", "Reputation":0] as [String : Any]
             usersRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err!)
