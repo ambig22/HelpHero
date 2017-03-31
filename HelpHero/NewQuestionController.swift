@@ -20,9 +20,22 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var questionTextField: UITextField!
     
+    @IBOutlet weak var exitButton: UIButton!
+    
     @IBOutlet weak var submitButton: UIButton!
     
+    @IBOutlet weak var jesseContainerView: UIView!
+    
+    @IBOutlet weak var jesseImageView: UIImageView!
+    
     var typePickerView: UIPickerView = UIPickerView()
+    
+    let shadowView: UIView = {
+        let view = UIView()
+        view.backgroundColor = halfTransparent
+        view.frame = CGRect(x: 0, y: 0, width: windowWidth, height: windowHeight)
+        return view
+    }()
     
     var projectsArray = [String]()
     
@@ -33,21 +46,48 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
     /////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        self.typePickerView.isHidden = true
-        self.typePickerView.dataSource = self
-        self.typePickerView.delegate = self
-        self.typePickerView.frame = CGRect(x: ((self.view.frame.size.width)/2) - 150, y: ((self.view.frame.size.height)/2) - 200, width: (self.view.frame.size.width) * 0.90, height: ((self.view.frame.size.height) * 0.70))
-        //self.typePickerView.backgroundColor = UIColor.black
-        self.typePickerView.layer.borderColor = UIColor.black.cgColor
-        self.typePickerView.layer.borderWidth = 1
+        setupViews()
+        view.backgroundColor = offGrey
         
         self.projectsArray = ["Project 1", "Project 2", "Project 3"]
-        
-        self.view.addSubview(typePickerView)
+
     }
     
+    func setupViews() {
+        // exit button
+        let image = UIImage(named: "exit_icon.png")
+        let tintedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        exitButton.setImage(tintedImage, for: .normal)
+        exitButton.tintColor = ashGrey
+        
+        // project pickerView
+        self.view.addSubview(shadowView)
+        self.view.addSubview(typePickerView)
+        
+        typePickerView.isHidden = true
+        shadowView.isHidden = true
+        typePickerView.dataSource = self
+        typePickerView.delegate = self
+        typePickerView.frame = CGRect(x: 0, y: windowHeight - 200, width: windowWidth, height: 200)
+        typePickerView.layer.borderColor = ashGrey.cgColor
+        typePickerView.layer.borderWidth = 1
+        typePickerView.backgroundColor = .white
+
+        jesseContainerView.layer.cornerRadius = 60
+        jesseContainerView.layer.masksToBounds = true
+        jesseContainerView.layer.borderWidth = 1
+        jesseContainerView.layer.borderColor = borderGrey.cgColor
+        jesseContainerView.backgroundColor = offGrey
+        
+        jesseImageView.layer.cornerRadius = 56
+        jesseImageView.layer.masksToBounds = true
+        
+        projectButton.backgroundColor = .white
+        projectButton.layer.cornerRadius = 5
+        projectButton.layer.borderColor = borderGrey.cgColor
+        projectButton.layer.borderWidth = 1
+        
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -66,6 +106,7 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         print("\(self.projectsArray[row]) was selected.")
         self.projectButton.titleLabel?.text = self.projectsArray[row]
         typePickerView.isHidden = true
+        shadowView.isHidden = true
     }
     
 //    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
@@ -103,8 +144,12 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func projectBtn(_ sender: UIButton) {
-        self.typePickerView.isHidden = false
+        typePickerView.isHidden = false
+        shadowView.isHidden = false
     }
     
+    @IBAction func exitButtonPrsd(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }
