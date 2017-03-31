@@ -11,6 +11,8 @@ import Firebase
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let cellId = "cellId"
+    
     /////////////////////////////////////////////////////////////////
     //
     // UI Elements
@@ -20,7 +22,11 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var logoutButton: UIButton!
     
-    @IBOutlet weak var questionsListCollection: UICollectionView!
+    @IBOutlet weak var slideInMenuView: UIView!
+    
+    @IBOutlet weak var shadowView: UIView!
+    
+    @IBOutlet weak var sliderExitImageView: UIImageView!
     
     @IBOutlet weak var composeContainerView: UIView!
     
@@ -28,6 +34,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var composeImageView: UIImageView!
     
+    let sliderWidth = 260
     
     /////////////////////////////////////////////////////////////////
     //
@@ -37,16 +44,14 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if FIRAuth.auth()?.currentUser?.uid == nil {
-            handleLogout()
-        }
+        checkIfUserIsLoggedIn()
 
         self.navigationController?.navigationBar.barTintColor = heroColor
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.isTranslucent = false
         
         setupViews()
-        
+        sliderSetup()
         shardedManager.downloadQuestions()
         shardedManager.downloadUsers()
     }
@@ -57,7 +62,17 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         composeImageView.image = composeImageView.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         composeImageView.tintColor = .white
-
+        
+        shadowView.backgroundColor = halfTransparent
+    }
+    
+    func sliderSetup() {
+        slideInMenuView.alpha = 0
+        shadowView.alpha = 0
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissSlider))
+        sliderExitImageView.addGestureRecognizer(tap)
+        sliderExitImageView.isUserInteractionEnabled = true
     }
     
     func handleLogout() {
@@ -72,21 +87,47 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(registerController, animated: true, completion: nil)
     }
 
+    func dismissSlider() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.shadowView.alpha = 0
+            self.slideInMenuView.alpha = 0
+        })
+    }
     /////////////////////////////////////////////////////////////////
     //
-    // tableView
+    // Firebase
+    //
+    /////////////////////////////////////////////////////////////////
+    func checkIfUserIsLoggedIn() {
+        if FIRAuth.auth()?.currentUser?.uid == nil {
+            handleLogout()
+        } else {
+            let uid = FIRAuth.auth()?.currentUser?.uid
+            FIRDatabase.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                }
+                print("////////////////////")
+                print(snapshot)
+            }, withCancel: nil)
+        }
+    }
+    
+    /////////////////////////////////////////////////////////////////
+    //
+    // tableView Delegate & DataSource
     //
     /////////////////////////////////////////////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return projectsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        // need to dequeue later for memory efficiency
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+        cell.textLabel?.text = projectsArray[indexPath.row]
+        
         return cell
     }
     
@@ -107,9 +148,15 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func filterButtonPrsd(_ sender: Any) {
+        // Transition spring damping animation
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.shadowView.alpha = 1
+            self.slideInMenuView.alpha = 1
+        }, completion: nil)
     }
     
     @IBAction func logoutButtonPrsd(_ sender: Any) {
         handleLogout()
     }
+    
 }
