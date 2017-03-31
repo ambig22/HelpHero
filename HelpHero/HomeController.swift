@@ -22,6 +22,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var questionsListCollection: UICollectionView!
     
+    let shardedManager = DAO.sharedManager
+    
     /////////////////////////////////////////////////////////////////
     //
     // viewDidLoad
@@ -38,6 +40,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.isTranslucent = false
         
+        shardedManager.downloadQuestions()
     }
 
     func handleLogout() {
