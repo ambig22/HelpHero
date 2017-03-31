@@ -9,13 +9,24 @@
 import UIKit
 import Firebase
 
-class HomeController: UIViewController {
+class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    /////////////////////////////////////////////////////////////////
+    //
+    // UI Elements
+    //
+    /////////////////////////////////////////////////////////////////
+    @IBOutlet weak var questionListTableView: UITableView!
+    
     @IBOutlet weak var logoutButton: UIButton!
     
     @IBOutlet weak var questionsListCollection: UICollectionView!
     
-    
+    /////////////////////////////////////////////////////////////////
+    //
+    // viewDidLoad
+    //
+    /////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +34,8 @@ class HomeController: UIViewController {
             handleLogout()
         }
 
+        self.navigationController?.navigationBar.barTintColor = heroColor
+        self.navigationController?.navigationBar.barStyle = .black
     }
 
     func handleLogout() {
@@ -37,6 +50,24 @@ class HomeController: UIViewController {
         present(registerController, animated: true, completion: nil)
     }
 
+    /////////////////////////////////////////////////////////////////
+    //
+    // tableView
+    //
+    /////////////////////////////////////////////////////////////////
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        return cell
+    }
+    
     /////////////////////////////////////////////////////////////////
     //
     // Actions
