@@ -43,7 +43,7 @@ class EntryController: UIViewController {
         if activeQuestion != nil {
             projectLabel.text = activeQuestion?.currentProject
             bodyTextView.text = activeQuestion?.question
-            authorLabel.text = activeQuestion?.askedBy
+            authorLabel.text = ""
             
             if activeQuestion?.answeredBy != nil {
                 statusLabel.text = "RESOLVED"
@@ -78,6 +78,7 @@ class EntryController: UIViewController {
         // present tableViewVC to pick the person that helped
         
         let creditVC = GiveCreditController()
+        creditVC.activeQuestion = activeQuestion
         self.navigationController?.pushViewController(creditVC, animated: true)
     }
     
