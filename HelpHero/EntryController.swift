@@ -19,6 +19,8 @@ class EntryController: UIViewController {
     
     @IBOutlet weak var bodyTextView: UITextView!
     
+    @IBOutlet weak var resolvedButton: UIButton!
+    
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var questionImageView: UIImageView!
@@ -47,5 +49,19 @@ class EntryController: UIViewController {
         bodyTextView.layer.borderColor = borderGrey.cgColor
         bodyTextView.layer.borderWidth = 1
         bodyTextView.layer.cornerRadius = 5
+        
+        resolvedButton.backgroundColor = heroColor
+        resolvedButton.setTitleColor(UIColor.white, for: .normal)
+        resolvedButton.layer.cornerRadius = 5
     }
+    
+    /////////////////////////////////////////////////////////////////
+    //
+    // Actions
+    //
+    /////////////////////////////////////////////////////////////////
+    @IBAction func resolvedButtonPrsd(_ sender: Any) {
+        // present tableViewVC to pick the person that helped
+    }
+    
 }
