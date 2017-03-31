@@ -39,8 +39,6 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         return view
     }()
     
-    var projectsArray = [String]()
-    
     /////////////////////////////////////////////////////////////////
     //
     // viewDidLoad
@@ -50,20 +48,6 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
         setupViews()
         view.backgroundColor = offGrey
-        
-        self.projectsArray = ["Algorithms and Coding",
-            "OOP",
-            "Project: Digital Leash",
-            "Project: Digital Clock",
-            "Project: TableView",
-            "Project: Navigation Control",
-            "Project: Programmatic UI",
-            "Project: Apple Maps",
-            "Project: Google Maps/Google Places API",
-            "Project: Animation",
-            "Project: Facebook",
-            "Project: Cloud and Camera",
-            "Project: Slow-Mo Video"]
 
     }
     
@@ -104,23 +88,24 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         
         submitButton.backgroundColor = heroColor
     }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int{
-        return self.projectsArray.count
+        return projectsArray.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.projectsArray[row]
+        return projectsArray[row]
     }
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("\(self.projectsArray[row]) was selected.")
-        self.projectButton.titleLabel?.text = self.projectsArray[row]
+        //print("\(projectsArray[row]) was selected.")
+        projectButton.titleLabel?.text = projectsArray[row]
         typePickerView.isHidden = true
         shadowView.isHidden = true
     }
