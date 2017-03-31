@@ -68,17 +68,66 @@
                                     <action selector="logoutButtonPrsd:" destination="OAi-ob-trO" eventType="touchUpInside" id="jfu-6K-V5L"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kg-C9-qCI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="217-aR-ZI6">
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTER BY PROJECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-eX-xS6">
+                                        <rect key="frame" x="14" y="0.0" width="232" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dbm-yK-jRw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u3r-mA-Q3h">
+                                        <rect key="frame" x="0.0" y="40" width="260" height="627"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Lz3-ZF-MsS">
+                                        <rect key="frame" x="230" y="12" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="8xj-8g-y8B"/>
+                                            <constraint firstAttribute="width" secondItem="Lz3-ZF-MsS" secondAttribute="height" id="P5v-Kl-xiz"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="u3r-mA-Q3h" secondAttribute="trailing" id="0iq-1z-JHy"/>
+                                    <constraint firstAttribute="trailing" secondItem="DKD-eX-xS6" secondAttribute="trailing" constant="14" id="5Z1-Zo-lfF"/>
+                                    <constraint firstAttribute="bottom" secondItem="u3r-mA-Q3h" secondAttribute="bottom" id="DcS-r7-FsD"/>
+                                    <constraint firstItem="DKD-eX-xS6" firstAttribute="top" secondItem="217-aR-ZI6" secondAttribute="top" id="WKz-Ot-K8T"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lz3-ZF-MsS" secondAttribute="trailing" constant="14" id="auq-89-bkF"/>
+                                    <constraint firstItem="u3r-mA-Q3h" firstAttribute="top" secondItem="DKD-eX-xS6" secondAttribute="bottom" id="bOp-Ar-tOE"/>
+                                    <constraint firstAttribute="width" constant="260" id="bjc-rH-1Ds"/>
+                                    <constraint firstItem="DKD-eX-xS6" firstAttribute="leading" secondItem="217-aR-ZI6" secondAttribute="leading" constant="14" id="cWg-kF-QJy"/>
+                                    <constraint firstItem="u3r-mA-Q3h" firstAttribute="leading" secondItem="217-aR-ZI6" secondAttribute="leading" id="eAd-lw-JLW"/>
+                                    <constraint firstItem="Lz3-ZF-MsS" firstAttribute="centerY" secondItem="DKD-eX-xS6" secondAttribute="centerY" id="gtg-Sg-irK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="5kg-C9-qCI" firstAttribute="leading" secondItem="oaI-F4-ovE" secondAttribute="leading" id="5dW-hA-LfG"/>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="leading" secondItem="oaI-F4-ovE" secondAttribute="leading" id="6Qp-Vp-aSp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HAE-xq-QI9" secondAttribute="trailing" constant="10" id="BYQ-Es-VdI"/>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="centerX" secondItem="oaI-F4-ovE" secondAttribute="centerX" id="Htd-m9-1V0"/>
                             <constraint firstAttribute="trailing" secondItem="B7F-Nk-p1L" secondAttribute="trailing" id="IwH-3C-xfF"/>
+                            <constraint firstItem="217-aR-ZI6" firstAttribute="leading" secondItem="oaI-F4-ovE" secondAttribute="leading" id="P7L-w9-6jr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="217-aR-ZI6" secondAttribute="bottom" id="QgN-DZ-4yd"/>
+                            <constraint firstAttribute="bottom" secondItem="5kg-C9-qCI" secondAttribute="bottom" id="VTs-60-f0C"/>
                             <constraint firstAttribute="bottom" secondItem="B7F-Nk-p1L" secondAttribute="bottom" id="WnX-s2-5h2"/>
+                            <constraint firstAttribute="trailing" secondItem="5kg-C9-qCI" secondAttribute="trailing" id="Yf5-4e-OAv"/>
                             <constraint firstAttribute="bottomMargin" secondItem="HAE-xq-QI9" secondAttribute="bottom" constant="30" id="aTl-AW-ZYm"/>
+                            <constraint firstItem="5kg-C9-qCI" firstAttribute="top" secondItem="oaI-F4-ovE" secondAttribute="top" id="dMi-lK-CtG"/>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="centerY" secondItem="oaI-F4-ovE" secondAttribute="centerY" id="gD4-f6-jtC"/>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="top" secondItem="oaI-F4-ovE" secondAttribute="top" id="lgs-HZ-GaL"/>
+                            <constraint firstItem="217-aR-ZI6" firstAttribute="top" secondItem="oaI-F4-ovE" secondAttribute="topMargin" id="wHd-hM-IQq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All" id="ff4-Wb-bDi">
@@ -100,6 +149,9 @@
                         <outlet property="composeImageView" destination="8c2-dQ-vIB" id="NkB-yj-3sQ"/>
                         <outlet property="logoutButton" destination="K5Z-t1-BBZ" id="BSC-vs-Jd5"/>
                         <outlet property="questionListTableView" destination="B7F-Nk-p1L" id="zsD-mo-8W5"/>
+                        <outlet property="shadowView" destination="5kg-C9-qCI" id="u5q-vK-Hqb"/>
+                        <outlet property="slideInMenuView" destination="217-aR-ZI6" id="ZFu-NB-04T"/>
+                        <outlet property="sliderExitImageView" destination="Lz3-ZF-MsS" id="dI0-FT-aNc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFQ-hk-oxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,5 +179,6 @@
     </scenes>
     <resources>
         <image name="compose" width="80" height="80"/>
+        <image name="exit_icon" width="100" height="100"/>
     </resources>
 </document>

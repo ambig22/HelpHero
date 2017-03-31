@@ -85,8 +85,8 @@ class RegisterController: UIViewController {
             return
         }
         
-        let newUser = User(name: name, level: projectLevel, email: email, password: password, reputation: 0.0)
-        sharedManager.uploadUser(currentUser: newUser)
+//        let newUser = User(name: name, level: projectLevel, email: email, password: password, reputation: 0.0)
+//        sharedManager.uploadUser(currentUser: newUser)
          self.dismiss(animated: true, completion: nil)
     }
     

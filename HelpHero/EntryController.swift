@@ -62,6 +62,9 @@ class EntryController: UIViewController {
     /////////////////////////////////////////////////////////////////
     @IBAction func resolvedButtonPrsd(_ sender: Any) {
         // present tableViewVC to pick the person that helped
+        
+        let creditVC = GiveCreditController()
+        self.navigationController?.pushViewController(creditVC, animated: true)
     }
     
 }

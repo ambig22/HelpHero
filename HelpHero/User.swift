@@ -8,22 +8,23 @@
 
 import UIKit
 
-class User {
-    let username:String
-    var email:String
-    var password:String
-    var projectLevel:String
-    var reputation: Double
+class User: NSObject {
+    var displayName:String?
+    var email:String?
+    var password:String?
+    var currentProject:String?
+    var reputation: Double?
     
     var image:UIImage?
     
-    init(name:String, level:String, email:String, password:String,reputation:Double)
-    {
-        username = name
-        self.email = email
-        projectLevel = level
-        self.reputation = reputation
-        self.password = password
-    }
+//    initWith(name:String, level:String, email:String, password:String,reputation:Double)
+//    {
+//        super.init()
+//        self.displayName = name
+//        self.email = email
+//        self.currentProject = level
+//        self.reputation = reputation
+//        self.password = password
+//    }
     
 }

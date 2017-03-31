@@ -19,7 +19,7 @@ class DAO {
     
     func uploadUser(currentUser:User)
     {
-        FIRAuth.auth()?.createUser(withEmail: currentUser.email, password: currentUser.password, completion: { (user: FIRUser?, error) in
+        FIRAuth.auth()?.createUser(withEmail: currentUser.email!, password: currentUser.password!, completion: { (user: FIRUser?, error) in
             if error != nil {
                 print(error!)
                 return
@@ -32,7 +32,7 @@ class DAO {
             // successfully authenticated user
             let ref = FIRDatabase.database().reference(fromURL: "https://helphero-7b63c.firebaseio.com/")
             let usersRef = ref.child("users").child(uid)
-            let values = ["displayName": currentUser.username, "email": currentUser.email, "currentProject": currentUser.projectLevel, "Reputation":0] as [String : Any]
+            let values = ["displayName": currentUser.username, "email": currentUser.email, "currentProject": currentUser.projectLevel, "reputation":0] as [String : Any]
             usersRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err!)
