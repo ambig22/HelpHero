@@ -16,6 +16,7 @@
                 <outlet property="emailTextField" destination="ruV-fu-IsV" id="Zjh-lc-Bgk"/>
                 <outlet property="logoImageView" destination="Xzt-sF-2BR" id="IpE-Zp-5j2"/>
                 <outlet property="passwordTextField" destination="gdT-qz-CvU" id="grb-4L-ANJ"/>
+                <outlet property="projectButton" destination="A4Y-Ar-Iak" id="GLw-cK-Ak0"/>
                 <outlet property="registerButton" destination="taw-3f-buS" id="SEp-eX-cab"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -47,8 +48,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taw-3f-buS">
-                    <rect key="frame" x="58" y="430" width="260" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taw-3f-buS">
+                    <rect key="frame" x="57" y="511" width="260" height="40"/>
                     <state key="normal" title="REGISTER"/>
                     <connections>
                         <action selector="registerBtn:" destination="-1" eventType="touchUpInside" id="XDL-3u-dWM"/>
@@ -67,24 +68,36 @@
                         <constraint firstAttribute="width" constant="120" id="zFP-Hn-xK7"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Y-Ar-Iak">
+                    <rect key="frame" x="58" y="422" width="260" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Select the Project You're On"/>
+                    <connections>
+                        <action selector="projectButtonPrsd:" destination="-1" eventType="touchUpInside" id="0hR-BJ-yYm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gdT-qz-CvU" firstAttribute="centerX" secondItem="ruV-fu-IsV" secondAttribute="centerX" id="0b2-U8-D8U"/>
                 <constraint firstItem="taw-3f-buS" firstAttribute="centerX" secondItem="ruV-fu-IsV" secondAttribute="centerX" id="4Vc-el-uaz"/>
+                <constraint firstItem="A4Y-Ar-Iak" firstAttribute="centerX" secondItem="gdT-qz-CvU" secondAttribute="centerX" id="4c8-0p-AZT"/>
                 <constraint firstItem="gdT-qz-CvU" firstAttribute="top" secondItem="ruV-fu-IsV" secondAttribute="bottom" constant="14" id="6Y1-ZO-Iqd"/>
                 <constraint firstItem="Rnz-BU-XZs" firstAttribute="height" secondItem="ruV-fu-IsV" secondAttribute="height" id="Bd5-RI-69S"/>
                 <constraint firstItem="pMb-u3-FY0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="C50-kI-gpP"/>
                 <constraint firstItem="Xzt-sF-2BR" firstAttribute="top" secondItem="pMb-u3-FY0" secondAttribute="bottom" constant="6" id="DDI-Qx-kpx"/>
                 <constraint firstItem="gdT-qz-CvU" firstAttribute="height" secondItem="ruV-fu-IsV" secondAttribute="height" id="FiX-Ii-n5F"/>
-                <constraint firstItem="taw-3f-buS" firstAttribute="top" secondItem="gdT-qz-CvU" secondAttribute="bottom" constant="22" id="MhN-J0-QTw"/>
+                <constraint firstItem="A4Y-Ar-Iak" firstAttribute="height" secondItem="gdT-qz-CvU" secondAttribute="height" id="J3O-Wb-gkV"/>
                 <constraint firstItem="Xzt-sF-2BR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OIl-k4-bdv"/>
                 <constraint firstItem="Rnz-BU-XZs" firstAttribute="top" secondItem="Xzt-sF-2BR" secondAttribute="bottom" constant="22" id="TxP-d6-zfZ"/>
+                <constraint firstItem="taw-3f-buS" firstAttribute="top" secondItem="A4Y-Ar-Iak" secondAttribute="bottom" constant="22" id="Vyt-aF-3G8"/>
                 <constraint firstItem="ruV-fu-IsV" firstAttribute="top" secondItem="Rnz-BU-XZs" secondAttribute="bottom" constant="14" id="ZBe-Wh-EAX"/>
+                <constraint firstItem="A4Y-Ar-Iak" firstAttribute="width" secondItem="gdT-qz-CvU" secondAttribute="width" id="fgf-Gv-uI8"/>
                 <constraint firstItem="Rnz-BU-XZs" firstAttribute="width" secondItem="ruV-fu-IsV" secondAttribute="width" id="fnA-Bz-27A"/>
                 <constraint firstItem="ruV-fu-IsV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hIe-Nu-P0P"/>
                 <constraint firstItem="Rnz-BU-XZs" firstAttribute="centerX" secondItem="ruV-fu-IsV" secondAttribute="centerX" id="nhW-eL-6BY"/>
                 <constraint firstItem="ruV-fu-IsV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="o7K-w1-wLD"/>
+                <constraint firstItem="A4Y-Ar-Iak" firstAttribute="top" secondItem="gdT-qz-CvU" secondAttribute="bottom" constant="14" id="pis-D8-XcR"/>
                 <constraint firstItem="taw-3f-buS" firstAttribute="height" secondItem="ruV-fu-IsV" secondAttribute="height" id="qEP-EY-ipa"/>
                 <constraint firstItem="taw-3f-buS" firstAttribute="width" secondItem="ruV-fu-IsV" secondAttribute="width" id="t97-ni-7g6"/>
                 <constraint firstItem="gdT-qz-CvU" firstAttribute="width" secondItem="ruV-fu-IsV" secondAttribute="width" id="xFO-Qy-mtg"/>
