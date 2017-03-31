@@ -59,11 +59,11 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        shardedManager.questionsArray.removeAll()
-        
         shardedManager.downloadQuestions(completion: {
             self.questionListTableView.reloadData()
         })
+        
+        self.questionListTableView.reloadData()
     }
 
     func setupViews() {

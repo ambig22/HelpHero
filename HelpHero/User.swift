@@ -35,9 +35,9 @@ class User {
         self.email = value?["email"] as! String
         self.reputation = value?["reputation"] as! Double
         
-        let loadUsers = User(name: displayName, level: currentProject, email: email, reputation: reputation)
+        //let loadUsers = User(name: displayName, level: currentProject, email: email, reputation: reputation)
         
-        sharedManager.usersArray.append(loadUsers)
+        
         print("Num of users \(sharedManager.usersArray.count)")
     }
 }

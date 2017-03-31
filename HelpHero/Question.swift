@@ -44,20 +44,15 @@ class Question {
     init(snapshot: FIRDataSnapshot) {
         let value = snapshot.value as? NSDictionary
         self.isAnswered = value?["isAnswered"] as? Bool
-        if self.isAnswered == false {
-            self.uuid = snapshot.key
-            print("The uuid is: \(uuid)")
-            self.question = value?["question"] as? String
-            self.currentProject = value?["project"] as? String
-            
-            self.answeredBy = value?["answeredBy"] as? String
-            self.askedBy = value?["askedBy"] as? String
-            
-            let loadQuestion = Question(questionBody: self.question!, level: self.currentProject!, answeredBy: self.answeredBy!, isAnswered: self.isAnswered!, askedBy: self.answeredBy!, newuuid: self.uuid)
-            
-            sharedManager.questionsArray.append(loadQuestion)
-            print("Num of questions \(sharedManager.questionsArray.count)")
-        }
+        self.uuid = snapshot.key
+        //print("The uuid is: \(uuid)")
+        self.question = value?["question"] as? String
+        self.currentProject = value?["project"] as? String
+        self.answeredBy = value?["answeredBy"] as? String
+        self.askedBy = value?["askedBy"] as? String
+        
+        //let loadQuestion = Question(questionBody: self.question!, level: self.currentProject!, answeredBy: self.answeredBy!, isAnswered: self.isAnswered!, askedBy: self.answeredBy!, newuuid: self.uuid)
+        print("Num of questions \(sharedManager.questionsArray.count)")
         
     }
     

@@ -36,12 +36,50 @@ class DAO {
     func downloadQuestions(completion: @escaping () -> Void) {
         questionsArray.removeAll()
         
-        ref = FIRDatabase.database().reference()
-        FIRDatabase.database().reference().child("questions").observe(.childAdded, with: {(snapshot) in
-            let loadQuestion = Question(snapshot: snapshot)
-            print(loadQuestion)
-            completion()
-        })
+        let urlString = "https://helphero-7b63c.firebaseio.com/questions.json"
+        
+        //Check that the url is valid before trying to make a network call
+        guard let url = URL(string: urlString)
+            else {return}
+        
+        //Create a session (network session)
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            //print(response)
+            
+            //Get our json (data) and turn it into a dictionary
+            //Check that we have data
+            guard let myData:Data = data
+                else {return}
+            
+            //Decode the raw data to a dictionary
+            guard let json = try? JSONSerialization.jsonObject(with: myData, options: []) as! [String:AnyObject]
+                else {return}
+
+            for question in json {
+                let valueDict = question.value
+                print(valueDict)
+                let loadQuestion = Question(questionBody: (valueDict["question"] as? String)!, level: (valueDict["project"] as? String)!, answeredBy: (valueDict["answeredBy"] as? String)!, isAnswered: (valueDict["isAnswered"] as? Bool)!, askedBy: (valueDict["askedBy"] as? String)!, newuuid: question.key)
+                self.questionsArray.append(loadQuestion)
+            }
+            
+            self.checkIfIsAnswered(qArray: self.questionsArray)
+            
+            DispatchQueue.main.async {
+                completion()
+            }
+            
+        }.resume()
+    }
+    func checkIfIsAnswered(qArray:[Question]) {
+        let newArray = qArray
+        var index = 0
+        for question in newArray {
+            if question.isAnswered == true {
+                self.questionsArray.remove(at: index)
+            }
+            index += 1
+        }
     }
     
     func downloadUsers(completion: @escaping () -> Void) {
@@ -50,7 +88,7 @@ class DAO {
         ref = FIRDatabase.database().reference()
         FIRDatabase.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
             let loadUser = User(snapshot: snapshot)
-            print(loadUser)
+            self.usersArray.append(loadUser)
             completion()
         })
         
