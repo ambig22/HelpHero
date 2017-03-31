@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,6 +14,8 @@
             <connections>
                 <outlet property="bodyTextView" destination="h3r-BT-xpu" id="Oc7-DZ-4Hq"/>
                 <outlet property="projectLabel" destination="3Ta-lQ-EMZ" id="CkU-uf-3kq"/>
+                <outlet property="questionImageView" destination="djM-XQ-VYZ" id="Wbx-rv-dyY"/>
+                <outlet property="resolvedButton" destination="EY6-6T-YFq" id="zQg-2S-NsZ"/>
                 <outlet property="statusLabel" destination="ySb-Ff-G8A" id="Rgv-9c-eqh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,31 +25,83 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ta-lQ-EMZ">
-                    <rect key="frame" x="82" y="77" width="199" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ta-lQ-EMZ">
+                    <rect key="frame" x="126" y="70" width="229" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Wwb-JO-ryi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active or Answered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-Ff-G8A">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="F04-UL-aLe"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="This is the body of the question" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h3r-BT-xpu">
-                    <rect key="frame" x="61" y="185" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question" translatesAutoresizingMaskIntoConstraints="NO" id="djM-XQ-VYZ">
+                    <rect key="frame" x="26" y="60" width="80" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="UF6-Uh-TPo"/>
+                        <constraint firstAttribute="width" secondItem="djM-XQ-VYZ" secondAttribute="height" multiplier="4:3" id="XDB-sV-h0l"/>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Help! I'm getting bunch of errors from messing with auto-layout." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h3r-BT-xpu">
+                    <rect key="frame" x="20" y="144" width="335" height="140"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="U2Y-cr-8Hv"/>
+                    </constraints>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active or Answered" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-Ff-G8A">
-                    <rect key="frame" x="101" y="385" width="148" height="58"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Author Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ay-3J-8j8">
+                    <rect key="frame" x="223" y="298" width="132" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY6-6T-YFq">
+                    <rect key="frame" x="19.5" y="356" width="335" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="bos-uJ-uVr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="PROBLEM RESOLVED"/>
+                    <connections>
+                        <action selector="resolvedButtonPrsd:" destination="-1" eventType="touchUpInside" id="6Z8-lU-5NQ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ySb-Ff-G8A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DyH-av-2PO"/>
+                <constraint firstAttribute="trailing" secondItem="3Ta-lQ-EMZ" secondAttribute="trailing" constant="20" id="HCb-TA-7ps"/>
+                <constraint firstItem="1ay-3J-8j8" firstAttribute="top" secondItem="h3r-BT-xpu" secondAttribute="bottom" constant="14" id="WDj-NJ-eJK"/>
+                <constraint firstItem="djM-XQ-VYZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="26" id="Wzz-tV-Umm"/>
+                <constraint firstItem="djM-XQ-VYZ" firstAttribute="top" secondItem="ySb-Ff-G8A" secondAttribute="bottom" constant="20" id="XXx-lS-FR6"/>
+                <constraint firstItem="h3r-BT-xpu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="awK-zA-eef"/>
+                <constraint firstItem="h3r-BT-xpu" firstAttribute="top" secondItem="djM-XQ-VYZ" secondAttribute="bottom" constant="24" id="bCN-Fk-tyN"/>
+                <constraint firstAttribute="trailing" secondItem="ySb-Ff-G8A" secondAttribute="trailing" id="bPt-pA-lAl"/>
+                <constraint firstItem="EY6-6T-YFq" firstAttribute="width" secondItem="h3r-BT-xpu" secondAttribute="width" id="cI7-Nz-Rpw"/>
+                <constraint firstAttribute="trailing" secondItem="h3r-BT-xpu" secondAttribute="trailing" constant="20" id="d7r-ev-dzS"/>
+                <constraint firstItem="EY6-6T-YFq" firstAttribute="top" secondItem="1ay-3J-8j8" secondAttribute="bottom" constant="40" id="dHO-pB-ctq"/>
+                <constraint firstItem="3Ta-lQ-EMZ" firstAttribute="centerY" secondItem="djM-XQ-VYZ" secondAttribute="centerY" id="jpf-P6-qq0"/>
+                <constraint firstItem="EY6-6T-YFq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="noz-80-YHc"/>
+                <constraint firstItem="1ay-3J-8j8" firstAttribute="trailing" secondItem="h3r-BT-xpu" secondAttribute="trailing" id="rc9-0P-Mpt"/>
+                <constraint firstItem="ySb-Ff-G8A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="t63-tf-aId"/>
+                <constraint firstItem="3Ta-lQ-EMZ" firstAttribute="leading" secondItem="djM-XQ-VYZ" secondAttribute="trailing" constant="20" id="z9h-79-bfz"/>
+            </constraints>
             <point key="canvasLocation" x="33.5" y="116.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="question" width="200" height="150"/>
+    </resources>
 </document>

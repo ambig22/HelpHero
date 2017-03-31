@@ -36,6 +36,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         self.navigationController?.navigationBar.barTintColor = heroColor
         self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.isTranslucent = false
+        
     }
 
     func handleLogout() {
@@ -73,6 +75,10 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Actions
     //
     /////////////////////////////////////////////////////////////////
+    @IBAction func testEntryButtonPrsd(_ sender: Any) {
+        let entryVC = EntryController()
+        self.navigationController?.pushViewController(entryVC, animated: true)
+    }
     
     @IBAction func newQuestionButtonPrsd(_ sender: Any) {
         let newQuestionVC = NewQuestionController()
