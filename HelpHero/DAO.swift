@@ -31,7 +31,7 @@ class DAO {
             // successfully authenticated user
             let ref = FIRDatabase.database().reference(fromURL: "https://helphero-7b63c.firebaseio.com/")
             let usersRef = ref.child("users").child(uid)
-            let values = ["displayName": currentUser.username, "email": currentUser.email, "currentProject": currentUser.projectLevel, "reputation":0] as [String : Any]
+            let values = ["displayName": currentUser.displayName, "email": currentUser.email, "currentProject": currentUser.currentProject, "reputation":0] as [String : Any]
             usersRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err!)

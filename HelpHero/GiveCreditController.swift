@@ -88,7 +88,7 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User()
                 user.setValuesForKeys(dictionary)
-                print(user.username!)
+                print(user.displayName!)
                 
             }
             
