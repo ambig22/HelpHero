@@ -143,7 +143,7 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
             print("form not valid")
             return
         }
-        let newQuestion = Question(questionBody: text, level: projectName)
+        let newQuestion = Question(questionBody: text, level: projectName, answeredBy: "N/A", isAnswered: false, askedBy: "N/A")
         sharedManager.uploadQuestion(question: newQuestion)
     }
     

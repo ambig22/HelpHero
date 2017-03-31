@@ -7,20 +7,41 @@
 //
 
 import UIKit
+import Firebase
 
 
 class Question {
     var question:String
-    var projectLevel:String
-    var isAnswered:Bool = false
-    var answeredBy:String = "N/A"
+    var currentProject:String
+    var isAnswered:Bool
+    var answeredBy:String
     var askedBy:String?
     
-    init(questionBody:String, level:String)
+    var sharedManager = DAO.sharedManager
+    
+    init(questionBody:String, level:String, answeredBy:String, isAnswered:Bool, askedBy:String)
     {
         question = questionBody
-        projectLevel = level
+        currentProject = level
+        self.askedBy = askedBy
+        self.answeredBy = answeredBy
+        self.isAnswered = isAnswered
         
+    }
+    
+    init(snapshot: FIRDataSnapshot) {
+        let value = snapshot.value as? NSDictionary
+        
+        self.question = value?["question"] as! String
+        self.currentProject = value?["project"] as! String
+        self.isAnswered = value?["isAnswered"] as! Bool
+        self.answeredBy = value?["answeredBy"] as! String
+        self.askedBy = value?["askedBy"] as? String
+        
+        let loadQuestion = Question(questionBody: self.question, level: self.currentProject, answeredBy: self.answeredBy, isAnswered: self.isAnswered, askedBy: self.answeredBy)
+        
+        sharedManager.questionsArray.append(loadQuestion)
+        print("Num of questions \(sharedManager.questionsArray.count)")
     }
     
    

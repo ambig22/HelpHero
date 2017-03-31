@@ -28,6 +28,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var composeContainerView: UIView!
     
+    let shardedManager = DAO.sharedManager
+    
     @IBOutlet weak var composeImageView: UIImageView!
     
     let sliderWidth = 260
