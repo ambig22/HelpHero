@@ -49,7 +49,7 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         setupViews()
         view.backgroundColor = offGrey
         
-        self.projectsArray = ["Algorithms and Coding 1",
+        self.projectsArray = ["Algorithms and Coding",
             "OOP",
             "Project: Digital Leash",
             "Project: Digital Clock",
