@@ -14,37 +14,8 @@ class DAO {
     static let sharedManager = DAO()
     var ref: FIRDatabaseReference!
     var questionsArray = [Question]()
+    var usersArray = [User]()
     
-    func uploadUser(currentUser:User)
-    {
-        FIRAuth.auth()?.createUser(withEmail: currentUser.email, password: currentUser.password, completion: { (user: FIRUser?, error) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            
-            guard let uid = user?.uid else {
-                print("UID Error")
-                return
-            }
-            
-            // successfully authenticated user
-            let ref = FIRDatabase.database().reference(fromURL: "https://helphero-7b63c.firebaseio.com/")
-            let usersRef = ref.child("users").child(uid)
-            let values = ["displayName": currentUser.username, "email": currentUser.email, "currentProject": currentUser.projectLevel, "reputation":0] as [String : Any]
-            usersRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil {
-                    print(err!)
-                    return
-                }
-                
-                print("Saved User Successfully into FIR DB")
-            })
-            
-        })
-
-
-    }
     
     func uploadQuestion(question:Question)
     {
@@ -73,8 +44,8 @@ class DAO {
     func downloadUsers() {
         ref = FIRDatabase.database().reference()
         FIRDatabase.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
-            let loadQuestion = Question(snapshot: snapshot)
-            print(loadQuestion)
+            let loadUser = User(snapshot: snapshot)
+            print(loadUser)
         })
     }
     

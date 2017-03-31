@@ -48,6 +48,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupViews()
         
         shardedManager.downloadQuestions()
+        shardedManager.downloadUsers()
     }
 
     func setupViews() {

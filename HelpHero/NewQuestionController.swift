@@ -130,6 +130,8 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         }
         let newQuestion = Question(questionBody: text, level: projectName, answeredBy: "N/A", isAnswered: false, askedBy: "N/A")
         sharedManager.uploadQuestion(question: newQuestion)
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func projectBtn(_ sender: UIButton) {

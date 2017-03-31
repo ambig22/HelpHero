@@ -7,23 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
 class User {
-    let username:String
+    let displayName:String
     var email:String
-    var password:String
-    var projectLevel:String
+    var currentProject:String
     var reputation: Double
     
     var image:UIImage?
     
-    init(name:String, level:String, email:String, password:String,reputation:Double)
+    var sharedManager = DAO.sharedManager
+    
+    init(name:String, level:String, email:String, reputation:Double)
     {
-        username = name
+        displayName = name
         self.email = email
-        projectLevel = level
+        currentProject = level
         self.reputation = reputation
-        self.password = password
     }
     
+    init(snapshot: FIRDataSnapshot) {
+        let value = snapshot.value as? NSDictionary
+        
+        self.displayName = value?["displayName"] as! String
+        self.currentProject = value?["currentProject"] as! String
+        self.email = value?["email"] as! String
+        self.reputation = value?["reputation"] as! Double
+        
+        let loadUsers = User(name: displayName, level: currentProject, email: email, reputation: reputation)
+        
+        sharedManager.usersArray.append(loadUsers)
+        print("Num of users \(sharedManager.usersArray.count)")
+    }
 }
