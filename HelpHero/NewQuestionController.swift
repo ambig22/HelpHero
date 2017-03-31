@@ -28,6 +28,8 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var jesseImageView: UIImageView!
     
+    var sharedManager = DAO.sharedManager
+    
     var typePickerView: UIPickerView = UIPickerView()
     
     let shadowView: UIView = {
@@ -141,20 +143,8 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
             print("form not valid")
             return
         }
-        
-        var ref: FIRDatabaseReference!
-        ref = FIRDatabase.database().reference()
-        
-        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if let user = user {
-                let uid = user.uid
-                let uuid = UUID().uuidString
-                ref.child("Questions").child(uuid).setValue(["Project": projectName, "Question":text, "isAnswered":false, "askedBy":uid, "answeredBy":"N/A"])
-            } else {
-                // No User is signed in. Show user the login screen
-            }
-        }
-
+        let newQuestion = Question(questionBody: text, level: projectName)
+        sharedManager.uploadQuestion(question: newQuestion)
     }
     
     @IBAction func projectBtn(_ sender: UIButton) {

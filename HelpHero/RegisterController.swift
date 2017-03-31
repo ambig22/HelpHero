@@ -40,6 +40,8 @@ class RegisterController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     @IBOutlet weak var projectButton: UIButton!
+    
+    var sharedManager = DAO.sharedManager
 
     /////////////////////////////////////////////////////////////////
     //
@@ -78,36 +80,14 @@ class RegisterController: UIViewController {
     
     
     @IBAction func registerBtn(_ sender: UIButton) {
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = displayNameTextField.text else {
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = displayNameTextField.text, let projectLevel = projectButton.titleLabel?.text else {
             print("form not valid")
             return
         }
         
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            
-            guard let uid = user?.uid else {
-                print("UID Error")
-                return
-            }
-            // successfully authenticated user
-            let ref = FIRDatabase.database().reference(fromURL: "https://helphero-7b63c.firebaseio.com/")
-            let usersRef = ref.child("users").child(uid)
-            let values = ["displayName": name, "email": email, "currentProject": "N/A", "Reputation":0] as [String : Any]
-            usersRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil {
-                    print(err!)
-                    return
-                }
-                
-                print("Saved User Successfully into FIR DB")
-                self.dismiss(animated: true, completion: nil)
-            })
-            
-        })
+        let newUser = User(name: name, level: projectLevel, email: email, password: password, reputation: 0.0)
+        sharedManager.uploadUser(currentUser: newUser)
+         self.dismiss(animated: true, completion: nil)
     }
     
 }
