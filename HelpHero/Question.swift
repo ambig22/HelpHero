@@ -8,6 +8,18 @@
 
 import UIKit
 
+
 class Question {
+    var question:String
+    var projectLevel:String
+    var isAnswered:Bool = false
+    var answeredBy:user?
+    
+    init(questionBody:String, level:String)
+    {
+        question = questionBody
+        projectLevel = level
+    }
+    
    
 }
