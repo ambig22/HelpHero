@@ -21,6 +21,8 @@ class EntryController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var questionImageView: UIImageView!
+    
     /////////////////////////////////////////////////////////////////
     //
     // viewDidLoad
@@ -28,9 +30,22 @@ class EntryController: UIViewController {
     /////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.tintColor = .white
+        
+        setupViews()
+        
     }
 
-
+    func setupViews() {
+        questionImageView.image = questionImageView.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        questionImageView.tintColor = ashGrey
+        
+        statusLabel.backgroundColor = borderGrey
+        statusLabel.textColor = .white
+        
+        bodyTextView.textContainerInset = UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8)
+        bodyTextView.layer.borderColor = borderGrey.cgColor
+        bodyTextView.layer.borderWidth = 1
+        bodyTextView.layer.cornerRadius = 5
+    }
 }
