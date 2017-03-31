@@ -42,11 +42,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="All" id="ff4-Wb-bDi">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="qEW-mq-iQh">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="filterButtonPrsd:" destination="OAi-ob-trO" id="VYJ-aW-7Rd"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="w16-ZB-yZ9">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="newQuestionButtonPrsd:" destination="OAi-ob-trO" id="SFo-Ig-3Id"/>
                             </connections>
@@ -54,6 +56,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="logoutButton" destination="K5Z-t1-BBZ" id="BSC-vs-Jd5"/>
+                        <outlet property="questionListTableView" destination="B7F-Nk-p1L" id="zsD-mo-8W5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFQ-hk-oxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
