@@ -22,6 +22,20 @@ let transparent = UIColor.black.withAlphaComponent(0)
 let halfTransparent = UIColor.black.withAlphaComponent(0.5)
 let mostlyTransparent = UIColor.black.withAlphaComponent(0.3)
 
+let projectsArray = ["Algorithms and Coding",
+                     "OOP",
+                     "Digital Leash",
+                     "Digital Clock",
+                     "TableView",
+                     "Navigation Control",
+                     "Programmatic UI",
+                     "Apple Maps",
+                     "Google Maps/Google Places API",
+                     "Animation",
+                     "Facebook",
+                     "Cloud and Camera",
+                     "Slow-Mo Video"]
+
 // ====================================================================
 //
 // EXTENSION - UIColor

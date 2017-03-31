@@ -21,7 +21,7 @@ class CustomTextField: UITextField {
     }
 }
 
-class RegisterController: UIViewController {
+class RegisterController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     
     /////////////////////////////////////////////////////////////////
     //
@@ -42,6 +42,8 @@ class RegisterController: UIViewController {
     @IBOutlet weak var projectButton: UIButton!
     
     var sharedManager = DAO.sharedManager
+    
+    var typePickerView: UIPickerView = UIPickerView()
 
     /////////////////////////////////////////////////////////////////
     //
@@ -67,6 +69,36 @@ class RegisterController: UIViewController {
         registerButton.layer.cornerRadius = 5
         
         projectButton.setTitleColor(ashGrey, for: .normal)
+        
+        self.view.addSubview(typePickerView)
+        
+        typePickerView.isHidden = true
+        typePickerView.dataSource = self
+        typePickerView.delegate = self
+        typePickerView.frame = CGRect(x: 0, y: windowHeight - 200, width: windowWidth, height: 200)
+        typePickerView.layer.borderColor = ashGrey.cgColor
+        typePickerView.layer.borderWidth = 1
+        typePickerView.backgroundColor = .white
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int{
+        return projectsArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return projectsArray[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //print("\(projectsArray[row]) was selected.")
+        projectButton.titleLabel?.text = projectsArray[row]
+        typePickerView.isHidden = true
     }
 
     /////////////////////////////////////////////////////////////////
@@ -76,6 +108,7 @@ class RegisterController: UIViewController {
     /////////////////////////////////////////////////////////////////
 
     @IBAction func projectButtonPrsd(_ sender: Any) {
+        typePickerView.isHidden = false
     }
     
     
