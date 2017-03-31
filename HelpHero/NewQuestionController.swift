@@ -89,10 +89,6 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         
         var ref: FIRDatabaseReference!
         ref = FIRDatabase.database().reference()
-//        var handle: FIRAuthStateDidChangeListenerHandle?
-//        handle = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
-//            
-//        }
         
         ref.child("Questions").child("Test").setValue(["Project": projectName, "Question":text])
         
