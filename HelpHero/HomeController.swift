@@ -43,6 +43,15 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         shardedManager.downloadQuestions()
     }
 
+    func setupViews() {
+        composeContainerView.layer.cornerRadius = 30
+        composeContainerView.backgroundColor = heroColor
+        
+        composeImageView.image = composeImageView.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        composeImageView.tintColor = .white
+
+    }
+    
     func handleLogout() {
         
         do {
