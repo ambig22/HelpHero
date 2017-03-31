@@ -9,6 +9,8 @@
 import UIKit
 
 class DAO {
+    static let sharedManager = DAO()
+    
     
 }
 
