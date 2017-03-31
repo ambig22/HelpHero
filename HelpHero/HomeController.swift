@@ -22,6 +22,11 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var questionsListCollection: UICollectionView!
     
+    @IBOutlet weak var composeContainerView: UIView!
+    
+    @IBOutlet weak var composeImageView: UIImageView!
+    
+    
     /////////////////////////////////////////////////////////////////
     //
     // viewDidLoad
@@ -38,8 +43,19 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.isTranslucent = false
         
+        setupViews()
+        
     }
 
+    func setupViews() {
+        composeContainerView.layer.cornerRadius = 30
+        composeContainerView.backgroundColor = heroColor
+        
+        composeImageView.image = composeImageView.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        composeImageView.tintColor = .white
+
+    }
+    
     func handleLogout() {
         
         do {

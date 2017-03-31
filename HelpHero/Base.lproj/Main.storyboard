@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,6 +38,25 @@
                                     </connections>
                                 </button>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAE-xq-QI9">
+                                <rect key="frame" x="289" y="577" width="60" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compose" translatesAutoresizingMaskIntoConstraints="NO" id="8c2-dQ-vIB">
+                                        <rect key="frame" x="17" y="17" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="BTX-3A-buq"/>
+                                            <constraint firstAttribute="width" secondItem="8c2-dQ-vIB" secondAttribute="height" id="MLQ-Fz-ZcC"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8c2-dQ-vIB" firstAttribute="centerY" secondItem="HAE-xq-QI9" secondAttribute="centerY" id="3Ch-ZB-MG4"/>
+                                    <constraint firstAttribute="width" secondItem="HAE-xq-QI9" secondAttribute="height" multiplier="1:1" id="FG5-No-W5H"/>
+                                    <constraint firstItem="8c2-dQ-vIB" firstAttribute="centerX" secondItem="HAE-xq-QI9" secondAttribute="centerX" id="Kz3-cd-eCw"/>
+                                    <constraint firstAttribute="width" constant="60" id="dwg-ZZ-kf0"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5Z-t1-BBZ">
                                 <rect key="frame" x="119" y="558" width="137" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,9 +72,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="leading" secondItem="oaI-F4-ovE" secondAttribute="leading" id="6Qp-Vp-aSp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HAE-xq-QI9" secondAttribute="trailing" constant="10" id="BYQ-Es-VdI"/>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="centerX" secondItem="oaI-F4-ovE" secondAttribute="centerX" id="Htd-m9-1V0"/>
                             <constraint firstAttribute="trailing" secondItem="B7F-Nk-p1L" secondAttribute="trailing" id="IwH-3C-xfF"/>
                             <constraint firstAttribute="bottom" secondItem="B7F-Nk-p1L" secondAttribute="bottom" id="WnX-s2-5h2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="HAE-xq-QI9" secondAttribute="bottom" constant="30" id="aTl-AW-ZYm"/>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="centerY" secondItem="oaI-F4-ovE" secondAttribute="centerY" id="gD4-f6-jtC"/>
                             <constraint firstItem="B7F-Nk-p1L" firstAttribute="top" secondItem="oaI-F4-ovE" secondAttribute="top" id="lgs-HZ-GaL"/>
                         </constraints>
@@ -73,6 +96,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="composeContainerView" destination="HAE-xq-QI9" id="e2x-Te-IcY"/>
+                        <outlet property="composeImageView" destination="8c2-dQ-vIB" id="NkB-yj-3sQ"/>
                         <outlet property="logoutButton" destination="K5Z-t1-BBZ" id="BSC-vs-Jd5"/>
                         <outlet property="questionListTableView" destination="B7F-Nk-p1L" id="zsD-mo-8W5"/>
                     </connections>
@@ -100,4 +125,7 @@
             <point key="canvasLocation" x="-639.20000000000005" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="compose" width="80" height="80"/>
+    </resources>
 </document>
