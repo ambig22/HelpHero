@@ -53,7 +53,6 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupViews()
         sliderSetup()
         shardedManager.downloadQuestions()
-        shardedManager.downloadUsers()
     }
 
     func setupViews() {

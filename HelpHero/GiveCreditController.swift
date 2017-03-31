@@ -16,6 +16,8 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
     
     var users = [User]()
     
+    let sharedManager = DAO.sharedManager
+    
     /////////////////////////////////////////////////////////////////
     //
     // UI Assets
@@ -40,7 +42,7 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
         userListTableView.dataSource = self
         
         setupViews()
-        fetchUser()
+        fetchUsers()
     }
 
     func setupViews() {
@@ -61,38 +63,58 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return sharedManager.usersArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // need to dequeue later for memory efficiency
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        cell.textLabel?.text = "Dummy Title"
+        let currentUser = sharedManager.usersArray[indexPath.row]
+        cell.textLabel?.text = currentUser.displayName
+        cell.imageView?.image = UIImage(named: "default_user")
+        cell.imageView?.layer.cornerRadius = 25
+        cell.imageView?.layer.masksToBounds = true
+        cell.imageView?.layer.borderColor = UIColor.white.cgColor
+        cell.imageView?.layer.borderWidth = 4
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // user reputation +1
+        
+        // set question to answered
+        
+    }
     
     /////////////////////////////////////////////////////////////////
     //
     // Firebase
     //
     /////////////////////////////////////////////////////////////////
-    func fetchUser() {
-        FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
-            
-            print("/////////////////// Fetch Users - User Found ///////////////////")
-            print(snapshot)
-            
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let user = User()
-                user.setValuesForKeys(dictionary)
-                print(user.displayName!)
-                
-            }
-            
-        }, withCancel: nil)
+    func fetchUsers() {
+        sharedManager.downloadUsers(completion: {
+            self.userListTableView.reloadData()
+        })
+    
+//        FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+//            
+//            print("/////////////////// Fetch Users - User Found ///////////////////")
+//            print(snapshot)
+//            
+//            if let dictionary = snapshot.value as? [String: AnyObject] {
+//                let user = User()
+//                user.setValuesForKeys(dictionary)
+//                print(user.displayName!)
+//                
+//            }
+//            
+//        }, withCancel: nil)
     }
     
     

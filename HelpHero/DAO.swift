@@ -38,15 +38,22 @@ class DAO {
         FIRDatabase.database().reference().child("questions").observe(.childAdded, with: {(snapshot) in
             let loadQuestion = Question(snapshot: snapshot)
             print(loadQuestion)
+            
+            
         })
     }
     
-    func downloadUsers() {
+    func downloadUsers(completion: @escaping () -> Void) {
+        usersArray.removeAll()
+        
         ref = FIRDatabase.database().reference()
         FIRDatabase.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
             let loadUser = User(snapshot: snapshot)
             print(loadUser)
+            completion()
         })
+        
+        print("completed??????????????????????")
     }
     
     
