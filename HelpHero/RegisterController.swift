@@ -39,7 +39,8 @@ class RegisterController: UIViewController {
     
     @IBOutlet weak var registerButton: UIButton!
     
-    
+    @IBOutlet weak var projectButton: UIButton!
+
     /////////////////////////////////////////////////////////////////
     //
     // viewDidLoad
@@ -62,6 +63,8 @@ class RegisterController: UIViewController {
         registerButton.backgroundColor = heroColor
         registerButton.setTitleColor(UIColor.white, for: .normal)
         registerButton.layer.cornerRadius = 5
+        
+        projectButton.setTitleColor(ashGrey, for: .normal)
     }
 
     /////////////////////////////////////////////////////////////////
@@ -70,6 +73,10 @@ class RegisterController: UIViewController {
     //
     /////////////////////////////////////////////////////////////////
 
+    @IBAction func projectButtonPrsd(_ sender: Any) {
+    }
+    
+    
     @IBAction func registerBtn(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text, let name = displayNameTextField.text else {
             print("form not valid")

@@ -98,7 +98,9 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         projectButton.layer.cornerRadius = 5
         projectButton.layer.borderColor = borderGrey.cgColor
         projectButton.layer.borderWidth = 1
+        projectButton.setTitleColor(ashGrey, for: .normal)
         
+        submitButton.backgroundColor = heroColor
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
