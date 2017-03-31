@@ -90,8 +90,16 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         var ref: FIRDatabaseReference!
         ref = FIRDatabase.database().reference()
         
-        ref.child("Questions").child("Test").setValue(["Project": projectName, "Question":text])
-        
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if let user = user {
+                let uid = user.uid
+                let uuid = UUID().uuidString
+                ref.child("Questions").child(uuid).setValue(["Project": projectName, "Question":text, "isAnswered":false, "askedBy":uid, "answeredBy":"N/A"])
+            } else {
+                // No User is signed in. Show user the login screen
+            }
+        }
+
     }
     
     @IBAction func projectBtn(_ sender: UIButton) {
