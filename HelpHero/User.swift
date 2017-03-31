@@ -10,16 +10,20 @@ import UIKit
 
 class User {
     let username:String
+    var email:String
+    var password:String
     var projectLevel:String
-    var tttReputation: Double
+    var reputation: Double
     
     var image:UIImage?
     
-    init(name:String, level:String, reputation:Double)
+    init(name:String, level:String, email:String, password:String,reputation:Double)
     {
         username = name
+        self.email = email
         projectLevel = level
-        tttReputation = reputation
+        self.reputation = reputation
+        self.password = password
     }
     
 }
