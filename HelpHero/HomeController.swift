@@ -55,6 +55,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         setupViews()
         sliderSetup()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        shardedManager.questionsArray.removeAll()
+        
         shardedManager.downloadQuestions(completion: {
             self.questionListTableView.reloadData()
         })
@@ -134,6 +140,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = loadQuestion.question
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedEntry = EntryController()
+        selectedEntry.activeQuestion = shardedManager.questionsArray[indexPath.row]
+        self.navigationController?.pushViewController(selectedEntry, animated: true)
     }
     
     /////////////////////////////////////////////////////////////////

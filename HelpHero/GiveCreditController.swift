@@ -18,6 +18,8 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
     
     let sharedManager = DAO.sharedManager
     
+    var activeQuestion: Question?
+    
     /////////////////////////////////////////////////////////////////
     //
     // UI Assets
@@ -86,10 +88,12 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // user reputation +1
+        let answeredUser = sharedManager.usersArray[indexPath.row]
+        print("UUID IS: \(String(describing: self.activeQuestion?.uuid))")
+        sharedManager.answeredQuestion(currentQuestion: self.activeQuestion!, answeredBy: answeredUser.displayName)
         
-        // set question to answered
-        
+        //self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     /////////////////////////////////////////////////////////////////
