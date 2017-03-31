@@ -13,12 +13,16 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     let cellId = "cellId"
     
+    let sharedManager = DAO.sharedManager
+    
     /////////////////////////////////////////////////////////////////
     //
     // UI Elements
     //
     /////////////////////////////////////////////////////////////////
     @IBOutlet weak var questionListTableView: UITableView!
+    
+    @IBOutlet weak var filterTableView: UITableView!
     
     @IBOutlet weak var logoutButton: UIButton!
     
@@ -30,9 +34,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var composeContainerView: UIView!
     
-    let shardedManager = DAO.sharedManager
-    
     @IBOutlet weak var composeImageView: UIImageView!
+    
+    let shardedManager = DAO.sharedManager
     
     let sliderWidth = 260
     
@@ -53,19 +57,32 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         questionListTableView.delegate = self
         questionListTableView.dataSource = self
         
+        filterTableView.delegate = self
+        filterTableView.dataSource = self
+        
         setupViews()
         sliderSetup()
         shardedManager.downloadQuestions(completion: {
             self.questionListTableView.reloadData()
         })
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Me", style: .plain, target: self, action: #selector(meButtonPrsd))
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
 
     func setupViews() {
+        slideInMenuView.backgroundColor = offGrey
+        filterTableView.backgroundColor = offGrey
+        
         composeContainerView.layer.cornerRadius = 30
         composeContainerView.backgroundColor = heroColor
         
         composeImageView.image = composeImageView.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         composeImageView.tintColor = .white
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(launchNewQuestion))
+        composeImageView.addGestureRecognizer(tap)
+        composeImageView.isUserInteractionEnabled = true
         
         shadowView.backgroundColor = halfTransparent
     }
@@ -109,11 +126,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let uid = FIRAuth.auth()?.currentUser?.uid
             FIRDatabase.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
                 
-//                if let dictionary = snapshot.value as? [String: AnyObject] {
-//                    
-//                }
-                print("////////////////////")
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                }
+                print("///////// Profile Page ///////////")
                 print(snapshot)
+                
             }, withCancel: nil)
         }
     }
@@ -124,16 +142,48 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //
     /////////////////////////////////////////////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shardedManager.questionsArray.count
+        if tableView == self.questionListTableView {
+            return shardedManager.questionsArray.count
+        } else {
+            return projectsArray.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // need to dequeue later for memory efficiency
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        let loadQuestion = shardedManager.questionsArray[indexPath.row]
-        cell.textLabel?.text = loadQuestion.question
+        if tableView == self.questionListTableView {
+            // need to dequeue later for memory efficiency
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+            let activeQuestion = shardedManager.questionsArray[indexPath.row]
+            
+            cell.textLabel?.font = .systemFont(ofSize: 14)
+            cell.textLabel?.text = activeQuestion.question
+            cell.detailTextLabel?.text = activeQuestion.currentProject
+            cell.detailTextLabel?.textColor = UIColor.lightGray
+            cell.imageView?.image = UIImage(named: "question_icon")
+            cell.imageView?.image = cell.imageView?.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.imageView?.tintColor = UIColor.lightGray
+            // let insets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+            // cell.imageView?.image = cell.imageView?.image?.resizableImage(withCapInsets: insets)
+            return cell
+        } else {
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+            
+            cell.textLabel?.font = .systemFont(ofSize: 13)
+            cell.textLabel?.text = projectsArray[indexPath.row]
+            
+            return cell
+        }
         
-        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == self.questionListTableView {
+            return 52
+        } else {
+            return 36
+        }
     }
     
     /////////////////////////////////////////////////////////////////
@@ -146,13 +196,19 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(entryVC, animated: true)
     }
     
-    @IBAction func newQuestionButtonPrsd(_ sender: Any) {
+    func launchNewQuestion() {
         let newQuestionVC = NewQuestionController()
         self.present(newQuestionVC, animated: true, completion: nil)
         
     }
     
-    @IBAction func filterButtonPrsd(_ sender: Any) {
+    func meButtonPrsd() {
+        let profileVC = ProfileController()
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    
+    @IBAction func filterButtonPrsd(_ sender: Any)  {
         // Transition spring damping animation
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.shadowView.alpha = 1

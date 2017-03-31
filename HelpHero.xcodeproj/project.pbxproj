@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5C75761E8F043600B61171 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C75741E8F043600B61171 /* ProfileController.swift */; };
+		2C5C75771E8F043600B61171 /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C75751E8F043600B61171 /* ProfileController.xib */; };
 		2C62B9431E8D73C3003BD960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9421E8D73C3003BD960 /* AppDelegate.swift */; };
 		2C62B9481E8D73C3003BD960 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C62B9461E8D73C3003BD960 /* Main.storyboard */; };
 		2C62B94B1E8D73C3003BD960 /* HelpHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C62B9491E8D73C3003BD960 /* HelpHero.xcdatamodeld */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C5C75741E8F043600B61171 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		2C5C75751E8F043600B61171 /* ProfileController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileController.xib; sourceTree = "<group>"; };
 		2C62B93F1E8D73C3003BD960 /* HelpHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C62B9421E8D73C3003BD960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C62B9471E8D73C3003BD960 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				2C62B96F1E8DBA8D003BD960 /* Model */,
 				2C62B9631E8DACDB003BD960 /* RegisterController.swift */,
 				2C62B9641E8DACDB003BD960 /* RegisterController.xib */,
+				2C5C75741E8F043600B61171 /* ProfileController.swift */,
+				2C5C75751E8F043600B61171 /* ProfileController.xib */,
 				2C62B9671E8DAEBD003BD960 /* NewQuestionController.swift */,
 				2C62B9681E8DAEBD003BD960 /* NewQuestionController.xib */,
 				2C62B96B1E8DAEE1003BD960 /* EntryController.swift */,
@@ -213,6 +219,7 @@
 				2C62B9501E8D73C3003BD960 /* LaunchScreen.storyboard in Resources */,
 				2C62B9661E8DACDB003BD960 /* RegisterController.xib in Resources */,
 				2C62B9791E8EC964003BD960 /* GiveCreditController.xib in Resources */,
+				2C5C75771E8F043600B61171 /* ProfileController.xib in Resources */,
 				2C62B9581E8D78E8003BD960 /* GoogleService-Info.plist in Resources */,
 				2C62B94D1E8D73C3003BD960 /* Assets.xcassets in Resources */,
 				2C62B96E1E8DAEE1003BD960 /* EntryController.xib in Resources */,
@@ -286,6 +293,7 @@
 				2C62B9781E8EC964003BD960 /* GiveCreditController.swift in Sources */,
 				2C62B96D1E8DAEE1003BD960 /* EntryController.swift in Sources */,
 				2C62B9611E8DA508003BD960 /* HomeController.swift in Sources */,
+				2C5C75761E8F043600B61171 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

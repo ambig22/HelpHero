@@ -38,7 +38,7 @@ let projectsArray = ["Algorithms and Coding",
 
 // ====================================================================
 //
-// EXTENSION - UIColor
+// EXTENSIONS
 //
 // ====================================================================
 extension UIColor {
@@ -49,5 +49,23 @@ extension UIColor {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+}
+
+extension UIView {
+    // ------------------------------------------
+    // Method - Add Constraints
+    // ------------------------------------------
+    // ... means "array of"
+    func addConstraintsWithFormat(format: String, views: UIView...) {
+        var viewsDictionary = [String:UIView]()
+        
+        for (index, view) in views.enumerated() {
+            let key = "view\(index)"
+            view.translatesAutoresizingMaskIntoConstraints = false
+            viewsDictionary[key] = view
+        }
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
