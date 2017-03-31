@@ -11,6 +11,8 @@ import Firebase
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let cellId = "cellId"
+    
     /////////////////////////////////////////////////////////////////
     //
     // UI Elements
@@ -117,15 +119,14 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //
     /////////////////////////////////////////////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return projectsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        // need to dequeue later for memory efficiency
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+        cell.textLabel?.text = projectsArray[indexPath.row]
+        
         return cell
     }
     
