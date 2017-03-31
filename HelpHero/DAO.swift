@@ -54,7 +54,7 @@ class DAO {
             if let user = user {
                 let uid = user.uid
                 let uuid = UUID().uuidString
-                self.ref.child("Questions").child(uuid).setValue(["project": question.currentProject, "question":question.question, "isAnswered":false, "askedBy":uid, "answeredBy":question.answeredBy])
+                self.ref.child("questions").child(uuid).setValue(["project": question.currentProject, "question":question.question, "isAnswered":false, "askedBy":uid, "answeredBy":question.answeredBy])
             } else {
                 // No User is signed in. Show user the login screen
             }
@@ -64,13 +64,19 @@ class DAO {
     
     func downloadQuestions() {
         ref = FIRDatabase.database().reference()
-        FIRDatabase.database().reference().child("Questions").observe(.childAdded, with: {(snapshot) in
+        FIRDatabase.database().reference().child("questions").observe(.childAdded, with: {(snapshot) in
             let loadQuestion = Question(snapshot: snapshot)
             print(loadQuestion)
         })
     }
     
-    
+    func downloadUsers() {
+        ref = FIRDatabase.database().reference()
+        FIRDatabase.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
+            let loadQuestion = Question(snapshot: snapshot)
+            print(loadQuestion)
+        })
+    }
     
     
     

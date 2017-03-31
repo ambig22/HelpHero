@@ -32,8 +32,8 @@ class Question {
     init(snapshot: FIRDataSnapshot) {
         let value = snapshot.value as? NSDictionary
         
-        self.question = value?["Question"] as! String
-        self.currentProject = value?["Project"] as! String
+        self.question = value?["question"] as! String
+        self.currentProject = value?["project"] as! String
         self.isAnswered = value?["isAnswered"] as! Bool
         self.answeredBy = value?["answeredBy"] as! String
         self.askedBy = value?["askedBy"] as? String
