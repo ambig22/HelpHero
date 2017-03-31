@@ -9,6 +9,9 @@
 import UIKit
 
 class EntryController: UIViewController {
+    
+    var activeQuestion: Question?
+
 
     /////////////////////////////////////////////////////////////////
     //
@@ -25,6 +28,7 @@ class EntryController: UIViewController {
     
     @IBOutlet weak var questionImageView: UIImageView!
     
+    @IBOutlet weak var authorLabel: UILabel!
     /////////////////////////////////////////////////////////////////
     //
     // viewDidLoad
@@ -35,6 +39,16 @@ class EntryController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         
         setupViews()
+        
+        if activeQuestion != nil {
+            projectLabel.text = activeQuestion?.currentProject
+            bodyTextView.text = activeQuestion?.question
+            authorLabel.text = activeQuestion?.askedBy
+            
+            if activeQuestion?.answeredBy != nil {
+                statusLabel.text = "RESOLVED"
+            }
+        }
         
     }
 

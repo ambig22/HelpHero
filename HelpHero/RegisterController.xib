@@ -48,8 +48,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taw-3f-buS">
-                    <rect key="frame" x="57" y="511" width="260" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taw-3f-buS">
+                    <rect key="frame" x="58" y="484" width="260" height="40"/>
                     <state key="normal" title="REGISTER"/>
                     <connections>
                         <action selector="registerBtn:" destination="-1" eventType="touchUpInside" id="XDL-3u-dWM"/>
