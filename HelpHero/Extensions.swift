@@ -8,6 +8,20 @@
 
 import UIKit
 
+
+// Settings
+let windowWidth = UIScreen.main.bounds.width
+let windowHeight = UIScreen.main.bounds.height
+
+let heroColor = UIColor.fromRGB(0x487b8e)
+let offGrey = UIColor.fromRGB(0xf4f4f4)
+let ashGrey = UIColor.fromRGB(0x555555)
+let borderGrey = UIColor.fromRGB(0xdfdedf)
+
+let transparent = UIColor.black.withAlphaComponent(0)
+let halfTransparent = UIColor.black.withAlphaComponent(0.5)
+let mostlyTransparent = UIColor.black.withAlphaComponent(0.3)
+
 // ====================================================================
 //
 // EXTENSION - UIColor
