@@ -50,9 +50,14 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.isTranslucent = false
         
+        questionListTableView.delegate = self
+        questionListTableView.dataSource = self
+        
         setupViews()
         sliderSetup()
-        shardedManager.downloadQuestions()
+        shardedManager.downloadQuestions(completion: {
+            self.questionListTableView.reloadData()
+        })
     }
 
     func setupViews() {
@@ -104,9 +109,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let uid = FIRAuth.auth()?.currentUser?.uid
             FIRDatabase.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
                 
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    
-                }
+//                if let dictionary = snapshot.value as? [String: AnyObject] {
+//                    
+//                }
                 print("////////////////////")
                 print(snapshot)
             }, withCancel: nil)
@@ -119,13 +124,14 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //
     /////////////////////////////////////////////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projectsArray.count
+        return shardedManager.questionsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // need to dequeue later for memory efficiency
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        cell.textLabel?.text = projectsArray[indexPath.row]
+        let loadQuestion = shardedManager.questionsArray[indexPath.row]
+        cell.textLabel?.text = loadQuestion.question
         
         return cell
     }
