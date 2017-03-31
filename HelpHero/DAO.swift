@@ -33,13 +33,12 @@ class DAO {
 
     }
     
-    func downloadQuestions() {
+    func downloadQuestions(completion: @escaping () -> Void) {
         ref = FIRDatabase.database().reference()
         FIRDatabase.database().reference().child("questions").observe(.childAdded, with: {(snapshot) in
             let loadQuestion = Question(snapshot: snapshot)
             print(loadQuestion)
-            
-            
+            completion()
         })
     }
     
