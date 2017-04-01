@@ -92,7 +92,12 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
         print("UUID IS: \(String(describing: self.activeQuestion?.uuid))")
         sharedManager.answeredQuestion(currentQuestion: self.activeQuestion!, answeredBy: answeredUser.displayName)
         
-        //self.dismiss(animated: true, completion: nil)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: false);
+        
+        
+    }
+    
+    func update() {
         self.navigationController?.popToRootViewController(animated: true)
     }
     

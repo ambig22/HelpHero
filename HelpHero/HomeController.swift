@@ -36,7 +36,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var composeImageView: UIImageView!
     
-    let shardedManager = DAO.sharedManager
+    //let sharedManager = DAO.sharedManager
     
     let sliderWidth = 260
     
@@ -66,12 +66,22 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        shardedManager.downloadQuestions(completion: {
+        sharedManager.downloadQuestions(completion: {
             self.questionListTableView.reloadData()
         })
         
+//        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: false);
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Me", style: .plain, target: self, action: #selector(meButtonPrsd))
         navigationItem.rightBarButtonItem?.tintColor = .white
+    }
+    
+    func update() {
+        self.questionListTableView.reloadData()
+        for q in sharedManager.questionsArray {
+            print("\(String(describing: q.question)) and \(String(describing: q.isAnswered))")
+        }
+        print("NSTIMER")
     }
 
     func setupViews() {
@@ -147,7 +157,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     /////////////////////////////////////////////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.questionListTableView {
-            return shardedManager.questionsArray.count
+            return sharedManager.questionsArray.count
         } else {
             return projectsArray.count
         }
@@ -158,7 +168,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if tableView == self.questionListTableView {
             // need to dequeue later for memory efficiency
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-            let activeQuestion = shardedManager.questionsArray[indexPath.row]
+            let activeQuestion = sharedManager.questionsArray[indexPath.row]
             
             cell.textLabel?.font = .systemFont(ofSize: 14)
             cell.textLabel?.text = activeQuestion.question
@@ -192,7 +202,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEntry = EntryController()
-        selectedEntry.activeQuestion = shardedManager.questionsArray[indexPath.row]
+        selectedEntry.activeQuestion = sharedManager.questionsArray[indexPath.row]
         self.navigationController?.pushViewController(selectedEntry, animated: true)
     }
     

@@ -58,28 +58,18 @@ class DAO {
 
             for question in json {
                 let valueDict = question.value
-                print(valueDict)
-                let loadQuestion = Question(questionBody: (valueDict["question"] as? String)!, level: (valueDict["project"] as? String)!, answeredBy: (valueDict["answeredBy"] as? String)!, isAnswered: (valueDict["isAnswered"] as? Bool)!, askedBy: (valueDict["askedBy"] as? String)!, newuuid: question.key)
-                self.questionsArray.append(loadQuestion)
+                if((valueDict["isAnswered"] as? Bool)! == false) {
+                    let loadQuestion = Question(questionBody: (valueDict["question"] as? String)!, level: (valueDict["project"] as? String)!, answeredBy: (valueDict["answeredBy"] as? String)!, isAnswered: (valueDict["isAnswered"] as? Bool)!, askedBy: (valueDict["askedBy"] as? String)!, newuuid: question.key)
+                    self.questionsArray.append(loadQuestion)
+                }
+                
             }
-            
-            self.checkIfIsAnswered(qArray: self.questionsArray)
             
             DispatchQueue.main.async {
                 completion()
             }
             
         }.resume()
-    }
-    func checkIfIsAnswered(qArray:[Question]) {
-        let newArray = qArray
-        var index = 0
-        for question in newArray {
-            if question.isAnswered == true {
-                self.questionsArray.remove(at: index)
-            }
-            index += 1
-        }
     }
     
     func downloadUsers(completion: @escaping () -> Void) {
@@ -95,7 +85,7 @@ class DAO {
         print("completed??????????????????????")
     }
     
-    func reuploadQuestion(question:Question)
+    func reuploadQuestion(question:Question, completion: @escaping () -> Void)
     {
         ref = FIRDatabase.database().reference()
         
@@ -103,6 +93,7 @@ class DAO {
             if let user = user {
                 let uid = user.uid
                 self.ref.child("questions").child(question.uuid).setValue(["project": question.currentProject!, "question":question.question!, "isAnswered":question.isAnswered!, "askedBy":uid, "answeredBy":question.answeredBy!])
+                completion()
             } else {
                 // No User is signed in. Show user the login screen
             }
@@ -115,7 +106,9 @@ class DAO {
         answeredQ.isAnswered = true
         answeredQ.answeredBy = answeredBy
         
-        reuploadQuestion(question: answeredQ)
+        reuploadQuestion(question: answeredQ, completion: {
+            
+        })
     }
     
 }
