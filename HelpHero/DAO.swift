@@ -81,8 +81,6 @@ class DAO {
             self.usersArray.append(loadUser)
             completion()
         })
-        
-        print("completed??????????????????????")
     }
     
     func reuploadQuestion(question:Question, completion: @escaping () -> Void)
@@ -101,15 +99,28 @@ class DAO {
         
     }
     
-    func answeredQuestion(currentQuestion:Question, answeredBy:String) {
+    func answeredQuestion(currentQuestion:Question, answeredBy:User) {
         let answeredQ = currentQuestion
         answeredQ.isAnswered = true
-        answeredQ.answeredBy = answeredBy
+        answeredQ.answeredBy = answeredBy.displayName
         
         reuploadQuestion(question: answeredQ, completion: {
-            
+            answeredBy.reputation += 1
+            self.uploadUser(currentUser: answeredBy)
         })
     }
     
+    func uploadUser(currentUser:User) {
+        ref = FIRDatabase.database().reference()
+        
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if let user = user {
+                let uid = user.uid
+                self.ref.child("users").child(uid).setValue(["displayName": currentUser.displayName, "email": currentUser.email, "currentProject": currentUser.currentProject, "reputation":currentUser.reputation] as [String : Any])
+            } else {
+                // No User is signed in. Show user the login screen
+            }
+        }
+    }
 }
 
