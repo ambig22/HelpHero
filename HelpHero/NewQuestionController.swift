@@ -48,7 +48,8 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
         setupViews()
         view.backgroundColor = offGrey
-
+        // projectButton.titleLabel?.frame = projectButton.frame
+        
     }
     
     func setupViews() {
@@ -89,6 +90,11 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
         submitButton.backgroundColor = heroColor
     }
     
+    /////////////////////////////////////////////////////////////////
+    //
+    // pickerView
+    //
+    /////////////////////////////////////////////////////////////////
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -105,18 +111,11 @@ class NewQuestionController: UIViewController,  UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //print("\(projectsArray[row]) was selected.")
+        
         projectButton.titleLabel?.text = projectsArray[row]
         typePickerView.isHidden = true
         shadowView.isHidden = true
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-//        return 36.0
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-//        return 36.0
-//    }
 
     /////////////////////////////////////////////////////////////////
     //

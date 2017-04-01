@@ -43,8 +43,11 @@ class ProfileController: UIViewController {
         self.title = "Me"
         
         setupViews()
-        checkIfUserIsLoggedIn()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkIfUserIsLoggedIn()
     }
 
     func setupViews() {

@@ -36,6 +36,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var composeImageView: UIImageView!
     
+    @IBOutlet weak var testEntryButton: UIButton!
+    
+    @IBOutlet weak var filterByProjectLabel: UILabel!
     //let sharedManager = DAO.sharedManager
     
     let sliderWidth = 260
@@ -47,6 +50,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     /////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // hide things jesse's not suppose to see
+        logoutButton.isHidden = true
+        testEntryButton.isHidden = true
+        filterByProjectLabel.isHidden = true
+        
         
         checkIfUserIsLoggedIn()
 
@@ -100,6 +109,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         composeImageView.isUserInteractionEnabled = true
         
         shadowView.backgroundColor = halfTransparent
+        
+        questionListTableView.backgroundColor = offGrey
     }
     
     func sliderSetup() {

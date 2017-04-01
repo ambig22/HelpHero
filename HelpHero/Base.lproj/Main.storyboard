@@ -137,12 +137,14 @@
                     <connections>
                         <outlet property="composeContainerView" destination="HAE-xq-QI9" id="e2x-Te-IcY"/>
                         <outlet property="composeImageView" destination="8c2-dQ-vIB" id="NkB-yj-3sQ"/>
+                        <outlet property="filterByProjectLabel" destination="KKB-HB-Sdp" id="VYp-PL-yzI"/>
                         <outlet property="filterTableView" destination="u5y-bS-oOh" id="1K1-AJ-uKk"/>
                         <outlet property="logoutButton" destination="K5Z-t1-BBZ" id="BSC-vs-Jd5"/>
                         <outlet property="questionListTableView" destination="B7F-Nk-p1L" id="zsD-mo-8W5"/>
                         <outlet property="shadowView" destination="5kg-C9-qCI" id="u5q-vK-Hqb"/>
                         <outlet property="slideInMenuView" destination="217-aR-ZI6" id="ZFu-NB-04T"/>
                         <outlet property="sliderExitImageView" destination="x0A-ZP-fZW" id="4MJ-8V-ZOw"/>
+                        <outlet property="testEntryButton" destination="Kzr-2t-Tj8" id="shu-58-XG7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFQ-hk-oxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
