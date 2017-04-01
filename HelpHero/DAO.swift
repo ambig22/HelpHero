@@ -139,25 +139,6 @@ class DAO {
             
             completion(name)
         })
-        
-        /*
-        ref.child("users").child(uid).observeSingleEvent(of: .childAdded, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            print(value as Any)
-            //name = (value?["displayName"] as? String)!
-            
-            print("Reading From Firebase")
-            
-            print("Username: \(String(describing: name))")
-            
-            completion(name)
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        */
-        
     }
 }
 
