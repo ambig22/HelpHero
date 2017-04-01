@@ -52,7 +52,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         // hide things jesse's not suppose to see
-        logoutButton.isHidden = true
+        // logoutButton.isHidden = true
         testEntryButton.isHidden = true
         filterByProjectLabel.isHidden = true
         
@@ -186,9 +186,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.textLabel?.text = activeQuestion.question
             cell.detailTextLabel?.text = activeQuestion.currentProject
             cell.detailTextLabel?.textColor = UIColor.lightGray
-            cell.imageView?.image = UIImage(named: "question_icon")
-            cell.imageView?.image = cell.imageView?.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-            cell.imageView?.tintColor = UIColor.lightGray
+            // cell.imageView?.image = UIImage(named: "question_icon")
+            // cell.imageView?.image = cell.imageView?.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            // cell.imageView?.tintColor = UIColor.lightGray
             // let insets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
             // cell.imageView?.image = cell.imageView?.image?.resizableImage(withCapInsets: insets)
             return cell
@@ -213,9 +213,15 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedEntry = EntryController()
-        selectedEntry.activeQuestion = sharedManager.questionsArray[indexPath.row]
-        self.navigationController?.pushViewController(selectedEntry, animated: true)
+        if tableView == self.questionListTableView {
+            let selectedEntry = EntryController()
+            selectedEntry.activeQuestion = sharedManager.questionsArray[indexPath.row]
+            self.navigationController?.pushViewController(selectedEntry, animated: true)
+        } else {
+            // filter function
+        }
+        
+        
     }
     
     /////////////////////////////////////////////////////////////////

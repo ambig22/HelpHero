@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All-->
+        <!--HelpHero-->
         <scene sceneID="QyK-Pb-sBM">
             <objects>
                 <viewController id="OAi-ob-trO" customClass="HomeController" customModule="HelpHero" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,17 +57,6 @@
                                     <constraint firstAttribute="width" constant="60" id="dwg-ZZ-kf0"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5Z-t1-BBZ">
-                                <rect key="frame" x="119" y="558" width="137" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.76058728450000002" green="0.16208900570000001" blue="0.17867107779999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutButtonPrsd:" destination="OAi-ob-trO" eventType="touchUpInside" id="jfu-6K-V5L"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kg-C9-qCI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,6 +68,16 @@
                                         <rect key="frame" x="0.0" y="40" width="260" height="627"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5Z-t1-BBZ">
+                                        <rect key="frame" x="0.0" y="637" width="260" height="30"/>
+                                        <color key="backgroundColor" red="0.76058728450000002" green="0.16208900570000001" blue="0.17867107779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutButtonPrsd:" destination="OAi-ob-trO" eventType="touchUpInside" id="jfu-6K-V5L"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter by Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKB-HB-Sdp">
                                         <rect key="frame" x="20" y="14.5" width="101.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -98,9 +97,12 @@
                                     <constraint firstItem="KKB-HB-Sdp" firstAttribute="leading" secondItem="217-aR-ZI6" secondAttribute="leading" constant="20" id="05r-pS-Kdw"/>
                                     <constraint firstAttribute="bottom" secondItem="u5y-bS-oOh" secondAttribute="bottom" id="Irq-L3-TYd"/>
                                     <constraint firstItem="KKB-HB-Sdp" firstAttribute="centerY" secondItem="x0A-ZP-fZW" secondAttribute="centerY" id="LpT-OO-Czy"/>
+                                    <constraint firstAttribute="trailing" secondItem="K5Z-t1-BBZ" secondAttribute="trailing" id="QBm-iM-kE4"/>
                                     <constraint firstItem="u5y-bS-oOh" firstAttribute="top" secondItem="217-aR-ZI6" secondAttribute="top" constant="40" id="Rf4-k3-r13"/>
+                                    <constraint firstAttribute="bottom" secondItem="K5Z-t1-BBZ" secondAttribute="bottom" id="Seu-TQ-ibz"/>
                                     <constraint firstAttribute="width" constant="260" id="bjc-rH-1Ds"/>
                                     <constraint firstAttribute="trailing" secondItem="x0A-ZP-fZW" secondAttribute="trailing" constant="14" id="mmE-ID-5sc"/>
+                                    <constraint firstItem="K5Z-t1-BBZ" firstAttribute="leading" secondItem="217-aR-ZI6" secondAttribute="leading" id="n06-dH-COb"/>
                                     <constraint firstAttribute="trailing" secondItem="u5y-bS-oOh" secondAttribute="trailing" id="nX0-a6-Mh0"/>
                                     <constraint firstItem="u5y-bS-oOh" firstAttribute="leading" secondItem="217-aR-ZI6" secondAttribute="leading" id="otm-f7-Quy"/>
                                     <constraint firstItem="x0A-ZP-fZW" firstAttribute="top" secondItem="217-aR-ZI6" secondAttribute="top" constant="14" id="usS-IL-Nwo"/>
@@ -126,7 +128,7 @@
                             <constraint firstItem="217-aR-ZI6" firstAttribute="top" secondItem="oaI-F4-ovE" secondAttribute="topMargin" id="wHd-hM-IQq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="All" id="ff4-Wb-bDi">
+                    <navigationItem key="navigationItem" title="HelpHero" id="ff4-Wb-bDi">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="qEW-mq-iQh">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
