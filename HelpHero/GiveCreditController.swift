@@ -90,7 +90,7 @@ class GiveCreditController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let answeredUser = sharedManager.usersArray[indexPath.row]
         print("UUID IS: \(String(describing: self.activeQuestion?.uuid))")
-        sharedManager.answeredQuestion(currentQuestion: self.activeQuestion!, answeredBy: answeredUser.displayName)
+        sharedManager.answeredQuestion(currentQuestion: self.activeQuestion!, answeredBy: answeredUser)
         
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: false);
         
