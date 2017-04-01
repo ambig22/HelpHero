@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EntryController: UIViewController {
     
@@ -47,6 +48,10 @@ class EntryController: UIViewController {
             
             if activeQuestion?.answeredBy != nil {
                 statusLabel.text = "RESOLVED"
+            }
+            
+            if activeQuestion?.askedBy != FIRAuth.auth()?.currentUser?.uid {
+                resolvedButton.isHidden = true
             }
         }
         

@@ -72,6 +72,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Me", style: .plain, target: self, action: #selector(meButtonPrsd))
         navigationItem.rightBarButtonItem?.tintColor = .white
+        self.questionListTableView.reloadData()
     }
 
     func setupViews() {
