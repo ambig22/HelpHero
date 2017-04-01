@@ -46,9 +46,9 @@ class EntryController: UIViewController {
             bodyTextView.text = activeQuestion?.question
             authorLabel.text = ""
             
-            if activeQuestion?.answeredBy != nil {
-                statusLabel.text = "RESOLVED"
-            }
+//            if activeQuestion?.answeredBy != nil {
+//                statusLabel.text = "RESOLVED"
+//            }
             
             if activeQuestion?.askedBy != FIRAuth.auth()?.currentUser?.uid {
                 resolvedButton.isHidden = true
