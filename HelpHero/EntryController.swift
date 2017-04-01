@@ -12,6 +12,10 @@ import Firebase
 class EntryController: UIViewController {
     
     var activeQuestion: Question?
+    
+    var sharedManager = DAO.sharedManager
+    
+    var username:String?
 
 
     /////////////////////////////////////////////////////////////////
@@ -44,7 +48,8 @@ class EntryController: UIViewController {
         if activeQuestion != nil {
             projectLabel.text = activeQuestion?.currentProject
             bodyTextView.text = activeQuestion?.question
-            authorLabel.text = ""
+            self.authorLabel.text = username
+            
             
 //            if activeQuestion?.answeredBy != nil {
 //                statusLabel.text = "RESOLVED"

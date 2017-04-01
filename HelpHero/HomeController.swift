@@ -215,8 +215,13 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == self.questionListTableView {
             let selectedEntry = EntryController()
-            selectedEntry.activeQuestion = sharedManager.questionsArray[indexPath.row]
-            self.navigationController?.pushViewController(selectedEntry, animated: true)
+            let currentQuestion = sharedManager.questionsArray[indexPath.row]
+            selectedEntry.activeQuestion = currentQuestion
+            sharedManager.convertUID(uid: (currentQuestion.askedBy)!, completion: {(username) in
+                selectedEntry.username = username
+                self.navigationController?.pushViewController(selectedEntry, animated: true)
+            })
+            
         } else {
             // filter function
         }
