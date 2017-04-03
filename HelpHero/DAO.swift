@@ -130,14 +130,16 @@ class DAO {
         
         FIRDatabase.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
             let value = snapshot.value as? NSDictionary
-            print("Value is \(value as Any)")
-            name = (value?["displayName"] as? String)!
-            
-            print("Reading From Firebase")
-            
-            print("Username: \(String(describing: name))")
-            
-            completion(name)
+            if snapshot.key == uid {
+                print("Value is \(value as Any)")
+                name = (value?["displayName"] as? String)!
+                
+                print("Reading From Firebase")
+                
+                print("Username: \(String(describing: name))")
+                
+                completion(name)
+            }
         })
     }
 }
