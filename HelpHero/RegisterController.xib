@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,6 +78,7 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="gdT-qz-CvU" firstAttribute="centerX" secondItem="ruV-fu-IsV" secondAttribute="centerX" id="0b2-U8-D8U"/>
                 <constraint firstItem="taw-3f-buS" firstAttribute="centerX" secondItem="ruV-fu-IsV" secondAttribute="centerX" id="4Vc-el-uaz"/>
@@ -102,8 +103,16 @@
                 <constraint firstItem="taw-3f-buS" firstAttribute="width" secondItem="ruV-fu-IsV" secondAttribute="width" id="t97-ni-7g6"/>
                 <constraint firstItem="gdT-qz-CvU" firstAttribute="width" secondItem="ruV-fu-IsV" secondAttribute="width" id="xFO-Qy-mtg"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Swc-9T-dtj" appends="YES" id="sZX-Z7-hJD"/>
+            </connections>
             <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
+        <tapGestureRecognizer id="Swc-9T-dtj">
+            <connections>
+                <action selector="tapGesture:" destination="-1" id="TCv-p5-Cal"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="logo_w_text" width="150" height="150"/>

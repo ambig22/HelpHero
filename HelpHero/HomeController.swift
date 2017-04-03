@@ -219,7 +219,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             selectedEntry.activeQuestion = currentQuestion
             sharedManager.convertUID(uid: (currentQuestion.askedBy)!, completion: {(username) in
                 selectedEntry.username = username
-                self.navigationController?.pushViewController(selectedEntry, animated: true)
+                if(!((self.navigationController?.topViewController?.isKind(of: EntryController.self))!)) {
+                    self.navigationController?.pushViewController(selectedEntry, animated: true)
+                } 
             })
             
         } else {

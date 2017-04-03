@@ -44,6 +44,7 @@ class RegisterController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var sharedManager = DAO.sharedManager
     
     var typePickerView: UIPickerView = UIPickerView()
+    
 
     /////////////////////////////////////////////////////////////////
     //
@@ -111,6 +112,10 @@ class RegisterController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         typePickerView.isHidden = false
     }
     
+    
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
     @IBAction func registerBtn(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text, let name = displayNameTextField.text, let currentProject = projectButton.titleLabel?.text else {
