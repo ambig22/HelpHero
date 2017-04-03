@@ -187,7 +187,7 @@
 				TargetAttributes = {
 					2C62B93E1E8D73C3003BD960 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 97UAVLVZY6;
+						DevelopmentTeam = FFKQL694JY;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -415,7 +415,7 @@
 			baseConfigurationReference = 3E351DDA2B0C720BB03D70C6 /* Pods-HelpHero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 97UAVLVZY6;
+				DEVELOPMENT_TEAM = FFKQL694JY;
 				INFOPLIST_FILE = HelpHero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.helphero.ios;
@@ -429,7 +429,7 @@
 			baseConfigurationReference = 718DD65821DBF0F621F38680 /* Pods-HelpHero.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 97UAVLVZY6;
+				DEVELOPMENT_TEAM = FFKQL694JY;
 				INFOPLIST_FILE = HelpHero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.helphero.ios;
